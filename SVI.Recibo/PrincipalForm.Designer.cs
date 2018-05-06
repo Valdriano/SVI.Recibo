@@ -30,24 +30,27 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalForm));
             this.Superiorpanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.InferiorstatusStrip = new System.Windows.Forms.StatusStrip();
             this.VersaotoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label1 = new System.Windows.Forms.Label();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.Selecaopanel = new System.Windows.Forms.Panel();
+            this.Contentpanel = new System.Windows.Forms.Panel();
+            this.Configuracaobutton = new System.Windows.Forms.Button();
             this.Recibobutton = new System.Windows.Forms.Button();
             this.Forncedoresbutton = new System.Windows.Forms.Button();
             this.Iniciobutton = new System.Windows.Forms.Button();
             this.Minimizarbutton = new System.Windows.Forms.Button();
             this.Maximizarbutton = new System.Windows.Forms.Button();
             this.Fecharbutton = new System.Windows.Forms.Button();
-            this.Selecaopanel = new System.Windows.Forms.Panel();
-            this.Contentpanel = new System.Windows.Forms.Panel();
+            this.WPFelementHost = new System.Windows.Forms.Integration.ElementHost();
             this.Superiorpanel.SuspendLayout();
             this.InferiorstatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            this.Contentpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // Superiorpanel
@@ -67,6 +70,17 @@
             this.Superiorpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Superiorpanel_MouseDown);
             this.Superiorpanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Superiorpanel_MouseMove);
             this.Superiorpanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Superiorpanel_MouseUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 22);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "SVI Recibo";
             // 
             // InferiorstatusStrip
             // 
@@ -91,17 +105,6 @@
             this.VersaotoolStripStatusLabel.Text = "Versão: 1.0.0.0";
             this.VersaotoolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "SVI Recibo";
-            // 
             // splitContainer
             // 
             this.splitContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -112,6 +115,7 @@
             // splitContainer.Panel1
             // 
             this.splitContainer.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.splitContainer.Panel1.Controls.Add(this.Configuracaobutton);
             this.splitContainer.Panel1.Controls.Add(this.Selecaopanel);
             this.splitContainer.Panel1.Controls.Add(this.Recibobutton);
             this.splitContainer.Panel1.Controls.Add(this.Forncedoresbutton);
@@ -123,6 +127,47 @@
             this.splitContainer.Size = new System.Drawing.Size(905, 537);
             this.splitContainer.SplitterDistance = 302;
             this.splitContainer.TabIndex = 2;
+            // 
+            // Selecaopanel
+            // 
+            this.Selecaopanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.Selecaopanel.Location = new System.Drawing.Point(11, 27);
+            this.Selecaopanel.Name = "Selecaopanel";
+            this.Selecaopanel.Size = new System.Drawing.Size(10, 55);
+            this.Selecaopanel.TabIndex = 7;
+            // 
+            // Contentpanel
+            // 
+            this.Contentpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Contentpanel.BackColor = System.Drawing.SystemColors.Window;
+            this.Contentpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Contentpanel.Controls.Add(this.WPFelementHost);
+            this.Contentpanel.Location = new System.Drawing.Point(3, 27);
+            this.Contentpanel.Name = "Contentpanel";
+            this.Contentpanel.Size = new System.Drawing.Size(583, 505);
+            this.Contentpanel.TabIndex = 0;
+            // 
+            // Configuracaobutton
+            // 
+            this.Configuracaobutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Configuracaobutton.FlatAppearance.BorderSize = 0;
+            this.Configuracaobutton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.Configuracaobutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Configuracaobutton.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Configuracaobutton.ForeColor = System.Drawing.SystemColors.Window;
+            this.Configuracaobutton.Image = global::SVI.Recibo.Properties.Resources.settings;
+            this.Configuracaobutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Configuracaobutton.Location = new System.Drawing.Point(31, 471);
+            this.Configuracaobutton.Name = "Configuracaobutton";
+            this.Configuracaobutton.Size = new System.Drawing.Size(258, 55);
+            this.Configuracaobutton.TabIndex = 11;
+            this.Configuracaobutton.Text = "Configuração";
+            this.Configuracaobutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Configuracaobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Configuracaobutton.UseVisualStyleBackColor = true;
+            this.Configuracaobutton.Click += new System.EventHandler(this.Configuracaobutton_Click);
             // 
             // Recibobutton
             // 
@@ -223,25 +268,15 @@
             this.Fecharbutton.UseVisualStyleBackColor = true;
             this.Fecharbutton.Click += new System.EventHandler(this.Fecharbutton_Click);
             // 
-            // Selecaopanel
+            // WPFelementHost
             // 
-            this.Selecaopanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.Selecaopanel.Location = new System.Drawing.Point(11, 27);
-            this.Selecaopanel.Name = "Selecaopanel";
-            this.Selecaopanel.Size = new System.Drawing.Size(10, 55);
-            this.Selecaopanel.TabIndex = 7;
-            // 
-            // Contentpanel
-            // 
-            this.Contentpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Contentpanel.BackColor = System.Drawing.SystemColors.Window;
-            this.Contentpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Contentpanel.Location = new System.Drawing.Point(3, 27);
-            this.Contentpanel.Name = "Contentpanel";
-            this.Contentpanel.Size = new System.Drawing.Size(583, 505);
-            this.Contentpanel.TabIndex = 0;
+            this.WPFelementHost.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WPFelementHost.Location = new System.Drawing.Point(0, 0);
+            this.WPFelementHost.Name = "WPFelementHost";
+            this.WPFelementHost.Size = new System.Drawing.Size(579, 501);
+            this.WPFelementHost.TabIndex = 0;
+            this.WPFelementHost.Text = "Elemento";
+            this.WPFelementHost.Child = null;
             // 
             // PrincipalForm
             // 
@@ -269,6 +304,7 @@
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            this.Contentpanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,6 +325,8 @@
         private System.Windows.Forms.Button Recibobutton;
         private System.Windows.Forms.Panel Selecaopanel;
         private System.Windows.Forms.Panel Contentpanel;
+        private System.Windows.Forms.Button Configuracaobutton;
+        private System.Windows.Forms.Integration.ElementHost WPFelementHost;
     }
 }
 

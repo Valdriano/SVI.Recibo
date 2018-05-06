@@ -1,29 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using SVI.Recibo.View;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SVI.Recibo
 {
     public partial class PrincipalForm : Form
     {
+        private InicioUserControl inicioView;
+        private ReciboUserControl reciboView;
+        private FornecedorUserControl fornecedorView;
+        private ConfiguracaoUserControl configuracaoView;
+
         protected bool MouseMove;
         protected Point PointForm;
         protected Point PointCursor;
+
         public PrincipalForm()
         {
             InitializeComponent();
+
+            inicioView = new InicioUserControl();
+            reciboView = new ReciboUserControl();
+            fornecedorView = new FornecedorUserControl();
+            configuracaoView = new ConfiguracaoUserControl();
         }
 
         private void PrincipalForm_Load( object sender, EventArgs e )
         {
+            this.MouseMove = false;
             this.splitContainer.IsSplitterFixed = true;
             this.splitContainer.FixedPanel = FixedPanel.Panel1;
+
+            this.Iniciobutton.PerformClick();
         }
 
         private void Fecharbutton_Click( object sender, EventArgs e )
@@ -63,16 +72,31 @@ namespace SVI.Recibo
         private void Iniciobutton_Click( object sender, EventArgs e )
         {
             MoveSelecao( sender );
+
+            if( !( this.WPFelementHost.Child is InicioUserControl ) )
+            {
+                SetUserControlWPF( inicioView );
+            }
         }
 
         private void Recibobutton_Click( object sender, EventArgs e )
         {
             MoveSelecao( sender );
+
+            if( !( this.WPFelementHost.Child is ReciboUserControl ) )
+            {
+                SetUserControlWPF( reciboView );
+            }
         }
 
         private void Forncedoresbutton_Click( object sender, EventArgs e )
         {
             MoveSelecao( sender );
+
+            if( !( this.WPFelementHost.Child is FornecedorUserControl ) )
+            {
+                SetUserControlWPF( fornecedorView );
+            }
         }
 
         private void Superiorpanel_MouseDown( object sender, MouseEventArgs e )
@@ -95,5 +119,17 @@ namespace SVI.Recibo
                 this.Location = Point.Add( PointForm, new Size( point ) );
             }
         }
+
+        private void Configuracaobutton_Click( object sender, EventArgs e )
+        {
+            MoveSelecao( sender );
+
+            if( !( this.WPFelementHost.Child is ConfiguracaoUserControl ) )
+            {
+                SetUserControlWPF( configuracaoView );
+            }
+        }
+
+        private void SetUserControlWPF( System.Windows.Controls.UserControl control ) => WPFelementHost.Child = control;
     }
 }

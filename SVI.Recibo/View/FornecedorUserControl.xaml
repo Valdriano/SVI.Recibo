@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="SVI.Recibo.View.FornecedorUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SVI.Recibo.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Language="pt-BR" FontFamily="Century Gothic" Height="Auto" Width="Auto">
+    <Grid Background="#FF1C1C1C">
+        <Label Content="Codigo:" Margin="38,10,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="57"/>
+        <Label Content="Fornecedor:" Margin="14,40,0,0" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="CPF / CNPJ:" Margin="16,70,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="79"/>
+        <Label Content="Bairro:" Margin="49,130,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46"/>
+        <Label Content="Logradouro:" Margin="16,160,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="81"/>
+        <Label Content="Complemento:" Margin="392,160,0,0" Foreground="White" HorizontalAlignment="Left" Width="99" Height="25" VerticalAlignment="Top"/>
+        <Label Content="CEP:" Margin="58,100,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="37"/>
+        <Label Content="Número:" Margin="431,130,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60"/>
+        <TextBox Margin="100,10,0,0" TextWrapping="Wrap" Text="1" HorizontalAlignment="Left" Width="49" Height="23" VerticalAlignment="Top" TextAlignment="Center" IsEnabled="False"/>
+        <TextBox Margin="100,42,0,0" TextWrapping="Wrap" Text="Novo Fornecedor" HorizontalAlignment="Left" Width="286" Height="23" VerticalAlignment="Top"/>
+        <TextBox Margin="100,72,0,0" TextWrapping="Wrap" Text="000.000.000-00" HorizontalAlignment="Left" Width="172" Height="23" VerticalAlignment="Top"/>
+        <TextBox Margin="100,104,0,0" TextWrapping="Wrap" Text="69093-010" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="68"/>
+        <TextBox Margin="100,134,0,0" TextWrapping="Wrap" Text="Novo Bairro" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="286"/>
+        <TextBox Margin="100,164,0,0" TextWrapping="Wrap" Text="Rua Nova" HorizontalAlignment="Left" Width="286" Height="23" VerticalAlignment="Top"/>
+        <TextBox Margin="496,133,0,0" TextWrapping="Wrap" Text="A 57" HorizontalAlignment="Left" Width="68" Height="23" VerticalAlignment="Top"/>
+        <TextBox Margin="496,164,0,0" TextWrapping="Wrap" Text="Proximo ao" HorizontalAlignment="Left" Width="286" Height="23" VerticalAlignment="Top"/>
+        <GroupBox Header="Logo Fornecedor" Margin="584,-3,0,0" Foreground="White" HorizontalAlignment="Left" Width="206" Height="130" VerticalAlignment="Top"/>
+        <StatusBar Height="35" VerticalAlignment="Bottom" Background="#FF007ACC"/>
+        <DataGrid x:Name="FornecedorDataGrid" Margin="26,0,10,40" VerticalAlignment="Bottom" Height="218">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Century Gothic" Header="Código"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Century Gothic" Header="Fornecedor" Width="*"/>
+                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Century Gothic" Header="CPF / CNPJ"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
