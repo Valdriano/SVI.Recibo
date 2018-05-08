@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalForm));
             this.Superiorpanel = new System.Windows.Forms.Panel();
+            this.Minimizarbutton = new System.Windows.Forms.Button();
+            this.Maximizarbutton = new System.Windows.Forms.Button();
+            this.Fecharbutton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.InferiorstatusStrip = new System.Windows.Forms.StatusStrip();
             this.VersaotoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.Selecaopanel = new System.Windows.Forms.Panel();
-            this.Contentpanel = new System.Windows.Forms.Panel();
             this.Configuracaobutton = new System.Windows.Forms.Button();
+            this.Selecaopanel = new System.Windows.Forms.Panel();
             this.Recibobutton = new System.Windows.Forms.Button();
             this.Forncedoresbutton = new System.Windows.Forms.Button();
             this.Iniciobutton = new System.Windows.Forms.Button();
-            this.Minimizarbutton = new System.Windows.Forms.Button();
-            this.Maximizarbutton = new System.Windows.Forms.Button();
-            this.Fecharbutton = new System.Windows.Forms.Button();
+            this.Contentpanel = new System.Windows.Forms.Panel();
             this.WPFelementHost = new System.Windows.Forms.Integration.ElementHost();
             this.Superiorpanel.SuspendLayout();
             this.InferiorstatusStrip.SuspendLayout();
@@ -65,11 +65,53 @@
             this.Superiorpanel.Location = new System.Drawing.Point(0, 0);
             this.Superiorpanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Superiorpanel.Name = "Superiorpanel";
-            this.Superiorpanel.Size = new System.Drawing.Size(905, 41);
+            this.Superiorpanel.Size = new System.Drawing.Size(983, 41);
             this.Superiorpanel.TabIndex = 0;
             this.Superiorpanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Superiorpanel_MouseDown);
             this.Superiorpanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Superiorpanel_MouseMove);
             this.Superiorpanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Superiorpanel_MouseUp);
+            // 
+            // Minimizarbutton
+            // 
+            this.Minimizarbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Minimizarbutton.FlatAppearance.BorderSize = 0;
+            this.Minimizarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Minimizarbutton.Image = global::SVI.Recibo.Properties.Resources.window_minimize;
+            this.Minimizarbutton.Location = new System.Drawing.Point(815, 7);
+            this.Minimizarbutton.Name = "Minimizarbutton";
+            this.Minimizarbutton.Size = new System.Drawing.Size(45, 29);
+            this.Minimizarbutton.TabIndex = 3;
+            this.Minimizarbutton.TabStop = false;
+            this.Minimizarbutton.UseVisualStyleBackColor = true;
+            this.Minimizarbutton.Click += new System.EventHandler(this.Minimizarbutton_Click);
+            // 
+            // Maximizarbutton
+            // 
+            this.Maximizarbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Maximizarbutton.FlatAppearance.BorderSize = 0;
+            this.Maximizarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Maximizarbutton.Image = global::SVI.Recibo.Properties.Resources.window_maximize;
+            this.Maximizarbutton.Location = new System.Drawing.Point(866, 7);
+            this.Maximizarbutton.Name = "Maximizarbutton";
+            this.Maximizarbutton.Size = new System.Drawing.Size(45, 29);
+            this.Maximizarbutton.TabIndex = 2;
+            this.Maximizarbutton.TabStop = false;
+            this.Maximizarbutton.UseVisualStyleBackColor = true;
+            this.Maximizarbutton.Click += new System.EventHandler(this.Maximizarbutton_Click);
+            // 
+            // Fecharbutton
+            // 
+            this.Fecharbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Fecharbutton.FlatAppearance.BorderSize = 0;
+            this.Fecharbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Fecharbutton.Image = global::SVI.Recibo.Properties.Resources.close_box;
+            this.Fecharbutton.Location = new System.Drawing.Point(926, 7);
+            this.Fecharbutton.Name = "Fecharbutton";
+            this.Fecharbutton.Size = new System.Drawing.Size(45, 29);
+            this.Fecharbutton.TabIndex = 1;
+            this.Fecharbutton.TabStop = false;
+            this.Fecharbutton.UseVisualStyleBackColor = true;
+            this.Fecharbutton.Click += new System.EventHandler(this.Fecharbutton_Click);
             // 
             // label1
             // 
@@ -91,7 +133,7 @@
             this.InferiorstatusStrip.Location = new System.Drawing.Point(0, 578);
             this.InferiorstatusStrip.Name = "InferiorstatusStrip";
             this.InferiorstatusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
-            this.InferiorstatusStrip.Size = new System.Drawing.Size(905, 22);
+            this.InferiorstatusStrip.Size = new System.Drawing.Size(983, 22);
             this.InferiorstatusStrip.SizingGrip = false;
             this.InferiorstatusStrip.TabIndex = 1;
             this.InferiorstatusStrip.Text = "Barra de status";
@@ -100,7 +142,7 @@
             // 
             this.VersaotoolStripStatusLabel.ForeColor = System.Drawing.Color.White;
             this.VersaotoolStripStatusLabel.Name = "VersaotoolStripStatusLabel";
-            this.VersaotoolStripStatusLabel.Size = new System.Drawing.Size(888, 17);
+            this.VersaotoolStripStatusLabel.Size = new System.Drawing.Size(966, 17);
             this.VersaotoolStripStatusLabel.Spring = true;
             this.VersaotoolStripStatusLabel.Text = "Versão: 1.0.0.0";
             this.VersaotoolStripStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -124,30 +166,9 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.Contentpanel);
-            this.splitContainer.Size = new System.Drawing.Size(905, 537);
-            this.splitContainer.SplitterDistance = 302;
+            this.splitContainer.Size = new System.Drawing.Size(983, 537);
+            this.splitContainer.SplitterDistance = 328;
             this.splitContainer.TabIndex = 2;
-            // 
-            // Selecaopanel
-            // 
-            this.Selecaopanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.Selecaopanel.Location = new System.Drawing.Point(11, 27);
-            this.Selecaopanel.Name = "Selecaopanel";
-            this.Selecaopanel.Size = new System.Drawing.Size(10, 55);
-            this.Selecaopanel.TabIndex = 7;
-            // 
-            // Contentpanel
-            // 
-            this.Contentpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Contentpanel.BackColor = System.Drawing.SystemColors.Window;
-            this.Contentpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Contentpanel.Controls.Add(this.WPFelementHost);
-            this.Contentpanel.Location = new System.Drawing.Point(3, 27);
-            this.Contentpanel.Name = "Contentpanel";
-            this.Contentpanel.Size = new System.Drawing.Size(583, 505);
-            this.Contentpanel.TabIndex = 0;
             // 
             // Configuracaobutton
             // 
@@ -168,6 +189,14 @@
             this.Configuracaobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Configuracaobutton.UseVisualStyleBackColor = true;
             this.Configuracaobutton.Click += new System.EventHandler(this.Configuracaobutton_Click);
+            // 
+            // Selecaopanel
+            // 
+            this.Selecaopanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.Selecaopanel.Location = new System.Drawing.Point(11, 27);
+            this.Selecaopanel.Name = "Selecaopanel";
+            this.Selecaopanel.Size = new System.Drawing.Size(10, 55);
+            this.Selecaopanel.TabIndex = 7;
             // 
             // Recibobutton
             // 
@@ -226,54 +255,25 @@
             this.Iniciobutton.UseVisualStyleBackColor = true;
             this.Iniciobutton.Click += new System.EventHandler(this.Iniciobutton_Click);
             // 
-            // Minimizarbutton
+            // Contentpanel
             // 
-            this.Minimizarbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Minimizarbutton.FlatAppearance.BorderSize = 0;
-            this.Minimizarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Minimizarbutton.Image = global::SVI.Recibo.Properties.Resources.window_minimize;
-            this.Minimizarbutton.Location = new System.Drawing.Point(737, 7);
-            this.Minimizarbutton.Name = "Minimizarbutton";
-            this.Minimizarbutton.Size = new System.Drawing.Size(45, 29);
-            this.Minimizarbutton.TabIndex = 3;
-            this.Minimizarbutton.TabStop = false;
-            this.Minimizarbutton.UseVisualStyleBackColor = true;
-            this.Minimizarbutton.Click += new System.EventHandler(this.Minimizarbutton_Click);
-            // 
-            // Maximizarbutton
-            // 
-            this.Maximizarbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Maximizarbutton.FlatAppearance.BorderSize = 0;
-            this.Maximizarbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Maximizarbutton.Image = global::SVI.Recibo.Properties.Resources.window_maximize;
-            this.Maximizarbutton.Location = new System.Drawing.Point(788, 7);
-            this.Maximizarbutton.Name = "Maximizarbutton";
-            this.Maximizarbutton.Size = new System.Drawing.Size(45, 29);
-            this.Maximizarbutton.TabIndex = 2;
-            this.Maximizarbutton.TabStop = false;
-            this.Maximizarbutton.UseVisualStyleBackColor = true;
-            this.Maximizarbutton.Click += new System.EventHandler(this.Maximizarbutton_Click);
-            // 
-            // Fecharbutton
-            // 
-            this.Fecharbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Fecharbutton.FlatAppearance.BorderSize = 0;
-            this.Fecharbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Fecharbutton.Image = global::SVI.Recibo.Properties.Resources.close_box;
-            this.Fecharbutton.Location = new System.Drawing.Point(848, 7);
-            this.Fecharbutton.Name = "Fecharbutton";
-            this.Fecharbutton.Size = new System.Drawing.Size(45, 29);
-            this.Fecharbutton.TabIndex = 1;
-            this.Fecharbutton.TabStop = false;
-            this.Fecharbutton.UseVisualStyleBackColor = true;
-            this.Fecharbutton.Click += new System.EventHandler(this.Fecharbutton_Click);
+            this.Contentpanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Contentpanel.BackColor = System.Drawing.SystemColors.Window;
+            this.Contentpanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Contentpanel.Controls.Add(this.WPFelementHost);
+            this.Contentpanel.Location = new System.Drawing.Point(3, 27);
+            this.Contentpanel.Name = "Contentpanel";
+            this.Contentpanel.Size = new System.Drawing.Size(635, 505);
+            this.Contentpanel.TabIndex = 0;
             // 
             // WPFelementHost
             // 
             this.WPFelementHost.Dock = System.Windows.Forms.DockStyle.Fill;
             this.WPFelementHost.Location = new System.Drawing.Point(0, 0);
             this.WPFelementHost.Name = "WPFelementHost";
-            this.WPFelementHost.Size = new System.Drawing.Size(579, 501);
+            this.WPFelementHost.Size = new System.Drawing.Size(631, 501);
             this.WPFelementHost.TabIndex = 0;
             this.WPFelementHost.Text = "Elemento";
             this.WPFelementHost.Child = null;
@@ -283,7 +283,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.ClientSize = new System.Drawing.Size(905, 600);
+            this.ClientSize = new System.Drawing.Size(983, 600);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.InferiorstatusStrip);
             this.Controls.Add(this.Superiorpanel);

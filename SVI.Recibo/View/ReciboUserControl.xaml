@@ -4,9 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SVI.Recibo.View"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             mc:Ignorable="d" d:DesignWidth="800" Height="236" Width="501" FontFamily="Century Gothic">
+    <Grid Background="#FF1C1C1C">
+        <TextBox x:Name="CodigoTextBox" HorizontalAlignment="Left" Height="23" Margin="107,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" TextAlignment="Right"/>
+        <TextBox x:Name="FornecedorTextBox" HorizontalAlignment="Left" Height="23" Margin="187,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" IsEnabled="False"/>
+        <Label Content="Valor:" HorizontalAlignment="Left" Margin="49,40,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="ValorTextBox" HorizontalAlignment="Left" Height="23" Margin="107,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="121" TextAlignment="Right" MaxLength="10"/>
+        <Label Content="Referente:" HorizontalAlignment="Left" Margin="22,65,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="ReferenteTextBox" HorizontalAlignment="Left" Height="64" Margin="108,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="368" MaxLength="200"/>
+        <Button x:Name="EmitirButton" Content="Emitir" HorizontalAlignment="Left" Margin="108,149,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="CancelarButton" Content="Cancelar" HorizontalAlignment="Left" Margin="188,149,0,0" VerticalAlignment="Top" Width="75"/>
+        <Label Content="Fornecedor:" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Foreground="White"/>
     </Grid>
 </UserControl>

@@ -3,34 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SVI.Recibo.View"
+             xmlns:cv="clr-namespace:SVI.Recibo.Util"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Language="pt-BR" FontFamily="Century Gothic" Height="Auto" Width="Auto">
+             d:DesignHeight="631" d:DesignWidth="501" Language="pt-BR" FontFamily="Century Gothic" Height="Auto" Width="Auto">
     <Grid Background="#FF1C1C1C">
-        <Label Content="Codigo:" Margin="38,10,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="57"/>
-        <Label Content="Fornecedor:" Margin="14,40,0,0" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <Label Content="CPF / CNPJ:" Margin="16,70,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="79"/>
-        <Label Content="Bairro:" Margin="49,130,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="46"/>
-        <Label Content="Logradouro:" Margin="16,160,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="81"/>
-        <Label Content="Complemento:" Margin="392,160,0,0" Foreground="White" HorizontalAlignment="Left" Width="99" Height="25" VerticalAlignment="Top"/>
-        <Label Content="CEP:" Margin="58,100,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="37"/>
-        <Label Content="Número:" Margin="431,130,0,0" Foreground="White" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60"/>
-        <TextBox Margin="100,10,0,0" TextWrapping="Wrap" Text="1" HorizontalAlignment="Left" Width="49" Height="23" VerticalAlignment="Top" TextAlignment="Center" IsEnabled="False"/>
-        <TextBox Margin="100,42,0,0" TextWrapping="Wrap" Text="Novo Fornecedor" HorizontalAlignment="Left" Width="286" Height="23" VerticalAlignment="Top"/>
-        <TextBox Margin="100,72,0,0" TextWrapping="Wrap" Text="000.000.000-00" HorizontalAlignment="Left" Width="172" Height="23" VerticalAlignment="Top"/>
-        <TextBox Margin="100,104,0,0" TextWrapping="Wrap" Text="69093-010" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="68"/>
-        <TextBox Margin="100,134,0,0" TextWrapping="Wrap" Text="Novo Bairro" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="286"/>
-        <TextBox Margin="100,164,0,0" TextWrapping="Wrap" Text="Rua Nova" HorizontalAlignment="Left" Width="286" Height="23" VerticalAlignment="Top"/>
-        <TextBox Margin="496,133,0,0" TextWrapping="Wrap" Text="A 57" HorizontalAlignment="Left" Width="68" Height="23" VerticalAlignment="Top"/>
-        <TextBox Margin="496,164,0,0" TextWrapping="Wrap" Text="Proximo ao" HorizontalAlignment="Left" Width="286" Height="23" VerticalAlignment="Top"/>
-        <GroupBox Header="Logo Fornecedor" Margin="584,-3,0,0" Foreground="White" HorizontalAlignment="Left" Width="206" Height="130" VerticalAlignment="Top"/>
-        <StatusBar Height="35" VerticalAlignment="Bottom" Background="#FF007ACC"/>
-        <DataGrid x:Name="FornecedorDataGrid" Margin="26,0,10,40" VerticalAlignment="Bottom" Height="218">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="114*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox Margin="4,14,0,0" TextWrapping="Wrap" Text="1" TextAlignment="Center" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="39" Grid.Column="1"/>
+        <TextBox Margin="4,37,0,0" TextWrapping="Wrap" Text="Novo Fornecedor" VerticalAlignment="Top" MaxLength="60" HorizontalAlignment="Left" Width="286" Grid.Column="1"/>
+        <TextBox Margin="4,64,0,0" TextWrapping="Wrap" Text="00000000000" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="18" Width="286" Grid.Column="1"/>
+        <TextBox Margin="4,118,0,0" TextWrapping="Wrap" Text="Novo Bairro" VerticalAlignment="Top" HorizontalAlignment="Left" MaxLength="60" Width="286" Grid.Column="1"/>
+        <TextBox Margin="4,145,0,0" TextWrapping="Wrap" Text="Rua Nova" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="40" Width="286" Grid.Column="1"/>
+        <TextBox Margin="4,169,0,0" TextWrapping="Wrap" Text="A 57" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="10" Width="57" Grid.Column="1"/>
+        <TextBox Margin="4,193,0,0" TextWrapping="Wrap" Text="Proximo ao" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="60" Width="286" Height="38" Grid.Column="1"/>
+        <GroupBox Header="Logo Fornecedor" Margin="4,236,0,0" Foreground="White" Height="130" VerticalAlignment="Top" HorizontalAlignment="Left" Width="206" Grid.Column="1">
+            <Image x:Name="LogoImage"/>
+        </GroupBox>
+        <StatusBar Height="35" VerticalAlignment="Bottom" Background="#FF007ACC" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="FornecedorDataGrid" Margin="26,371,10,40" Grid.ColumnSpan="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Century Gothic" Header="Código"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Century Gothic" Header="Fornecedor" Width="*"/>
                 <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontFamily="Century Gothic" Header="CPF / CNPJ"/>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBox Margin="4,91,0,0" TextWrapping="Wrap" Text="69093-010" VerticalAlignment="Top" HorizontalAlignment="Left" Width="79" Grid.Column="1"/>
+        <Button x:Name="SalvarButton" Content="Salvar" HorizontalAlignment="Left" Margin="26,0,0,8" Width="75" Background="#FF1C1C1C" Foreground="White" VerticalAlignment="Bottom"/>
+        <Button x:Name="CancelarButton" Content="Cancelar" HorizontalAlignment="Left" Margin="129,0,0,8" VerticalAlignment="Bottom" Width="75" Background="#FF1C1C1C" Foreground="White" Grid.ColumnSpan="2"/>
+        <Button x:Name="NovoButton" Content="Novo" HorizontalAlignment="Left" Margin="70,0,0,8" VerticalAlignment="Bottom" Width="75" Background="#FF1C1C1C" Foreground="White" Grid.Column="1"/>
+        <Button x:Name="EditarButton" Content="Editar" HorizontalAlignment="Left" Margin="169,0,0,8" VerticalAlignment="Bottom" Width="75" Background="#FF1C1C1C" Foreground="White" Grid.Column="1"/>
+        <Button x:Name="ExcluirButton" Content="Excluir" HorizontalAlignment="Left" Margin="266,0,0,8" VerticalAlignment="Bottom" Width="75" Background="#FF1C1C1C" Foreground="White" Grid.Column="1"/>
+        <Label Content="Codigo:" Margin="0,10,2,0" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto"/>
+        <Label Content="Fornecedor:" Margin="0,33,2,0" Foreground="White" VerticalAlignment="Top" Height="Auto" HorizontalAlignment="Right"/>
+        <Label Content="CPF / CNPJ:" Margin="0,60,2,0" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Width="Auto"/>
+        <Label Content="Bairro:" Margin="0,114,2,0" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto"/>
+        <Label Content="Logradouro:" Margin="0,141,2,0" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Width="Auto"/>
+        <Label Content="CEP:" Margin="0,87,2,0" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto"/>
+        <Label Content="Número:" Margin="0,165,2,0" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto"/>
+        <Label Content="Complemento:" Margin="0,194,2,0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

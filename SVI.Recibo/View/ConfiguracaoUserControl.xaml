@@ -17,8 +17,8 @@
                     <TextBox x:Name="EmailTextBox" HorizontalAlignment="Right" Height="23" Margin="0,0,71,186" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="391" Text="novo.proprietario@email.com"/>
                     <Label Content="Local:" HorizontalAlignment="Right" Margin="0,0,466,150" VerticalAlignment="Bottom" Background="#00000000" Foreground="White" RenderTransformOrigin="1.524,0.949"/>
                     <TextBox x:Name="LocalTextBox" HorizontalAlignment="Right" Height="23" Margin="0,0,303,151" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="158" Text="Manaus"/>
-                    <Button x:Name="SalvarButton" Content="Salvar" HorizontalAlignment="Left" Margin="117,181,0,0" VerticalAlignment="Top" Width="75"/>
-                    <Button x:Name="CancelarButton" Content="Cancelar" HorizontalAlignment="Left" Margin="201,181,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="SalvarButton" Content="Salvar" HorizontalAlignment="Left" Margin="117,181,0,0" VerticalAlignment="Top" Width="75" Background="#FF1C1C1C" Foreground="White"/>
+                    <Button x:Name="CancelarButton" Content="Cancelar" HorizontalAlignment="Left" Margin="201,181,0,0" VerticalAlignment="Top" Width="75" Background="#FF1C1C1C" Foreground="White"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SobreTabItem" Header="Sobre">
