@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SVI.Recibo.Context;
+using SVI.Recibo.Model;
 
 namespace SVI.Recibo.Repository
 {
-    class ConfiguracaoRepository
+    public class ConfiguracaoRepository : Repository<Configuracao, int>
     {
+        public ConfiguracaoRepository( SVIReciboDbContext context ) : base( context )
+        {
+
+        }
     }
 }

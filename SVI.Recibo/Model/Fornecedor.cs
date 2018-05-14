@@ -17,6 +17,7 @@ namespace SVI.Recibo.Model
         public string Numero { get; set; }
         public string Complemento { get; set; }
         public int CEP { get; set; }
+        public byte[] Logo { get; set; }
 
         public virtual IList<Recibo> _Recibos { get; set; }
     }

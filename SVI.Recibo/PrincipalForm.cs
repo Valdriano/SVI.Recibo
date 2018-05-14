@@ -1,6 +1,7 @@
 ﻿using SVI.Recibo.View;
 using System;
 using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace SVI.Recibo
@@ -12,7 +13,7 @@ namespace SVI.Recibo
         private FornecedorUserControl fornecedorView;
         private ConfiguracaoUserControl configuracaoView;
 
-        protected bool MouseMove;
+        protected bool _MouseMove;
         protected Point PointForm;
         protected Point PointCursor;
 
@@ -21,14 +22,19 @@ namespace SVI.Recibo
             InitializeComponent();
 
             inicioView = new InicioUserControl();
-            reciboView = new ReciboUserControl();
+            reciboView = new ReciboUserControl( this );
             fornecedorView = new FornecedorUserControl();
             configuracaoView = new ConfiguracaoUserControl();
         }
 
         private void PrincipalForm_Load( object sender, EventArgs e )
         {
-            this.MouseMove = false;
+            Assembly entryAssembly = Assembly.GetEntryAssembly();
+            Version version = entryAssembly.GetName().Version;
+
+            VersaotoolStripStatusLabel.Text = $"Versão: {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
+
+            this._MouseMove = false;
             this.splitContainer.IsSplitterFixed = true;
             this.splitContainer.FixedPanel = FixedPanel.Panel1;
 
@@ -71,49 +77,64 @@ namespace SVI.Recibo
 
         private void Iniciobutton_Click( object sender, EventArgs e )
         {
+            Application.DoEvents();
+            Cursor.Current = Cursors.WaitCursor;
+
             MoveSelecao( sender );
 
             if( !( this.WPFelementHost.Child is InicioUserControl ) )
             {
                 SetUserControlWPF( inicioView );
             }
+
+            Cursor.Current = Cursors.Default;
         }
 
         private void Recibobutton_Click( object sender, EventArgs e )
         {
+            Application.DoEvents();
+            Cursor.Current = Cursors.WaitCursor;
+
             MoveSelecao( sender );
 
             if( !( this.WPFelementHost.Child is ReciboUserControl ) )
             {
                 SetUserControlWPF( reciboView );
             }
+
+            Cursor.Current = Cursors.Default;
         }
 
         private void Forncedoresbutton_Click( object sender, EventArgs e )
         {
+            Application.DoEvents();
+            Cursor.Current = Cursors.WaitCursor;
+
             MoveSelecao( sender );
 
             if( !( this.WPFelementHost.Child is FornecedorUserControl ) )
             {
                 SetUserControlWPF( fornecedorView );
             }
+
+            Cursor.Current = Cursors.Default;
         }
 
         private void Superiorpanel_MouseDown( object sender, MouseEventArgs e )
         {
-            this.MouseMove = true;
+            this._MouseMove = true;
             this.PointForm = this.Location;
             this.PointCursor = Cursor.Position;
         }
 
         private void Superiorpanel_MouseUp( object sender, MouseEventArgs e )
         {
-            this.MouseMove = false;
+            this._MouseMove = false;
         }
 
         private void Superiorpanel_MouseMove( object sender, MouseEventArgs e )
         {
-            if( this.MouseMove )
+            if( this._MouseMove )
             {
                 Point point = Point.Subtract( Cursor.Position, new Size( PointCursor ) );
                 this.Location = Point.Add( PointForm, new Size( point ) );
@@ -122,14 +143,19 @@ namespace SVI.Recibo
 
         private void Configuracaobutton_Click( object sender, EventArgs e )
         {
+            Application.DoEvents();
+            Cursor.Current = Cursors.WaitCursor;
+
             MoveSelecao( sender );
 
             if( !( this.WPFelementHost.Child is ConfiguracaoUserControl ) )
             {
                 SetUserControlWPF( configuracaoView );
             }
+
+            Cursor.Current = Cursors.Default;
         }
 
-        private void SetUserControlWPF( System.Windows.Controls.UserControl control ) => WPFelementHost.Child = control;
+        public void SetUserControlWPF( System.Windows.Controls.UserControl control ) => WPFelementHost.Child = control;
     }
 }

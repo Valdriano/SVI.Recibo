@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SVI.Recibo.View"
-             mc:Ignorable="d" Width="585.438" Height="335.18" Language="pt-BR" FontFamily="Century Gothic">
+             mc:Ignorable="d" Width="585.438" Height="335.18" Language="pt-BR" FontFamily="Century Gothic" Loaded="UserControl_Loaded">
     <Grid>
         <TabControl Background="#FF007ACC" RenderTransformOrigin="0.5,0.5">
             <TabItem x:Name="ConfigInicialTabItem" Header="Configuração Inicial" FontFamily="Century Gothic">
@@ -12,13 +12,13 @@
                     <Label Content="Licença:" Margin="0,0,467,252" Background="#00000000" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
                     <TextBox x:Name="LicencaTextBox" HorizontalAlignment="Right" Height="23" Margin="0,0,71,254" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="391" IsEnabled="False"/>
                     <Label Content="Proprietário:" HorizontalAlignment="Right" Margin="0,0,467,218" VerticalAlignment="Bottom" Background="#00000000" Foreground="White"/>
-                    <TextBox x:Name="ProprietarioTextBox" HorizontalAlignment="Right" Height="23" Margin="0,0,71,219" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="391" Text="Novo Proprietario do Sistema"/>
+                    <TextBox x:Name="ProprietarioTextBox" HorizontalAlignment="Right" Height="23" Margin="0,0,71,219" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="391" Text="Novo Proprietario do Sistema" LostFocus="ProprietarioTextBox_LostFocus"/>
                     <Label Content="Email:" HorizontalAlignment="Right" Margin="0,0,467,185" VerticalAlignment="Bottom" Background="#00000000" Foreground="White" RenderTransformOrigin="1.524,0.949"/>
-                    <TextBox x:Name="EmailTextBox" HorizontalAlignment="Right" Height="23" Margin="0,0,71,186" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="391" Text="novo.proprietario@email.com"/>
+                    <TextBox x:Name="EmailTextBox" HorizontalAlignment="Right" Height="23" Margin="0,0,71,186" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="391" Text="novo.proprietario@email.com" LostFocus="EmailTextBox_LostFocus"/>
                     <Label Content="Local:" HorizontalAlignment="Right" Margin="0,0,466,150" VerticalAlignment="Bottom" Background="#00000000" Foreground="White" RenderTransformOrigin="1.524,0.949"/>
-                    <TextBox x:Name="LocalTextBox" HorizontalAlignment="Right" Height="23" Margin="0,0,303,151" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="158" Text="Manaus"/>
-                    <Button x:Name="SalvarButton" Content="Salvar" HorizontalAlignment="Left" Margin="117,181,0,0" VerticalAlignment="Top" Width="75" Background="#FF1C1C1C" Foreground="White"/>
-                    <Button x:Name="CancelarButton" Content="Cancelar" HorizontalAlignment="Left" Margin="201,181,0,0" VerticalAlignment="Top" Width="75" Background="#FF1C1C1C" Foreground="White"/>
+                    <TextBox x:Name="LocalTextBox" HorizontalAlignment="Right" Height="23" Margin="0,0,303,151" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="158" Text="Manaus" LostFocus="LocalTextBox_LostFocus"/>
+                    <Button x:Name="SalvarButton" Content="Salvar" HorizontalAlignment="Left" Margin="117,181,0,0" VerticalAlignment="Top" Width="75" Background="#FF1C1C1C" Foreground="White" Click="SalvarButton_Click"/>
+                    <Button x:Name="CancelarButton" Content="Cancelar" HorizontalAlignment="Left" Margin="201,181,0,0" VerticalAlignment="Top" Width="75" Background="#FF1C1C1C" Foreground="White" Click="CancelarButton_Click"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="SobreTabItem" Header="Sobre">
