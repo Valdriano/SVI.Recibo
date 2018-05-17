@@ -33,9 +33,17 @@ namespace SVI.Recibo.View
 
         private void CarregarDados()
         {
-            this.DesabilitarControles();
-            //Expression<Func<Fornecedor, bool>> ex = ( f => f.IDFornecedor == 1 );
-            this.FornecedorDataGrid.ItemsSource = repository.Listar();
+            try
+            {
+                this.DesabilitarControles();
+                //Expression<Func<Fornecedor, bool>> ex = ( f => f.IDFornecedor == 1 );
+                this.FornecedorDataGrid.ItemsSource = repository.Listar();
+            }
+            catch( Exception ex )
+            {
+
+                MessageBox.Show( ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error );
+            }
         }
 
         private void HabilitarControles()

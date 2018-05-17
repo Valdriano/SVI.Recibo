@@ -27,21 +27,29 @@ namespace SVI.Recibo.View
 
         private void CarregarDados()
         {
-            this.CancelarButton.IsEnabled = false;
-            this.SalvarButton.IsEnabled = false;
-
-            config = repository.SelecionarPorId( 1 );
-
-            if( config == null )
+            try
             {
-                MessageBox.Show( "Não foi possivel carregar as configurações", "Aviso", MessageBoxButton.OK, MessageBoxImage.Error );
+                this.CancelarButton.IsEnabled = false;
+                this.SalvarButton.IsEnabled = false;
+
+                config = repository.SelecionarPorId( 1 );
+
+                if( config == null )
+                {
+                    MessageBox.Show( "Não foi possivel carregar as configurações", "Aviso", MessageBoxButton.OK, MessageBoxImage.Error );
+                }
+                else
+                {
+                    this.ProprietarioTextBox.Text = config.Proprietario;
+                    this.LicencaTextBox.Text = config.Licenca;
+                    this.EmailTextBox.Text = config.Email;
+                    this.LocalTextBox.Text = config.Local;
+                }
             }
-            else
+            catch( Exception ex )
             {
-                this.ProprietarioTextBox.Text = config.Proprietario;
-                this.LicencaTextBox.Text = config.Licenca;
-                this.EmailTextBox.Text = config.Email;
-                this.LocalTextBox.Text = config.Local;
+
+                MessageBox.Show( ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error );
             }
         }
 
