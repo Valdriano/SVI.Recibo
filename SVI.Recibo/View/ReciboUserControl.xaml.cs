@@ -26,7 +26,7 @@ namespace SVI.Recibo.View
             this.principalForm = principalForm;
 
             this.ValorTextBox.ToMoney();
-            this.CodigoTextBox.ToNumeric();
+            this.CodigoTextBox.ToNumber();
         }
 
         private void CodigoTextBox_LostFocus( object sender, RoutedEventArgs e )
@@ -39,8 +39,8 @@ namespace SVI.Recibo.View
                 {
                     MessageBox.Show( "Fornecedor: " + this.CodigoTextBox.Text + " não localizado!", "Aviso", MessageBoxButton.OK, MessageBoxImage.Warning );
 
-                    this.CodigoTextBox.Focus();
-
+                    this.CodigoTextBox.Clear();
+                    this.FornecedorTextBox.Clear();
                     return;
                 }
                 else
@@ -112,7 +112,7 @@ namespace SVI.Recibo.View
             catch( Exception ex )
             {
 
-                MessageBox.Show( ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error );
+                MessageBox.Show( ex.Message + "\nTrace de linha: " + ex.StackTrace, "Erro", MessageBoxButton.OK, MessageBoxImage.Error );
             }
         }
 
@@ -121,6 +121,11 @@ namespace SVI.Recibo.View
             this.CodigoTextBox.Text = "";
             this.ValorTextBox.Text = "";
             this.ReferenteTextBox.Text = "";
+        }
+
+        private void UserControl_KeyDown( object sender, System.Windows.Input.KeyEventArgs e )
+        {
+            e.MudarFocoComEnter();
         }
     }
 }

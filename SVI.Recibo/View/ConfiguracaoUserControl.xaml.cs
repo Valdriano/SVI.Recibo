@@ -1,6 +1,7 @@
 ﻿using SVI.Recibo.Context;
 using SVI.Recibo.Model;
 using SVI.Recibo.Repository;
+using SVI.Recibo.Util;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -112,6 +113,11 @@ namespace SVI.Recibo.View
         private void CancelarButton_Click( object sender, RoutedEventArgs e )
         {
             this.CarregarDados();
+        }
+
+        private void UserControl_KeyDown( object sender, System.Windows.Input.KeyEventArgs e )
+        {
+            e.MudarFocoComEnter();
         }
     }
 }

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "SVI Recibo"
-#define MyAppVersion "1.0.0.1"
+#define MyAppVersion "1.0.0.2"
 #define MyAppPublisher "Empresa de desenvolvimento de Software"
 ;#define MyAppURL "https://valdriano.github.io/"
 #define MyAppURL "https:google.com.br"
@@ -98,7 +98,7 @@ Source: "C:\Users\VALDRIANO\source\repos\SVI.Recibo\SVI.Recibo\bin\Debug\SqlServ
 Source: "C:\Users\VALDRIANO\source\repos\SVI.Recibo\SVI.Recibo\bin\Debug\zh-CHS\*"; DestDir: "{app}\zh-CHS"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "C:\Users\VALDRIANO\source\repos\SVI.Recibo\SVI.Recibo\bin\Debug\zh-CHT\*"; DestDir: "{app}\zh-CHT"; Flags: ignoreversion recursesubdirs createallsubdirs
 ;Source: "C:\Users\VALDRIANO\source\repos\SVI.Recibo\SVI.Recibo\bin\Debug\App_Data\*"; DestDir: "{app}\App_Data"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "C:\Program Files\Microsoft SQL Server\120\Tools\Binn\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+;Source: "C:\Program Files\Microsoft SQL Server\120\Tools\Binn\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 ;Icone padrão SVI RECIBO

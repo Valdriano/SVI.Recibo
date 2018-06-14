@@ -390,6 +390,16 @@ namespace SVI.Recibo.Util
                 textBox.Text = "0,00";
         }
 
+        public static void ToNumber( this TextBox txInput, bool acceptTrace = false )
+        {
+            if( acceptTrace )
+                txInput.PreviewTextInput += TxInput_PreviewTextInput2;
+            else
+                txInput.PreviewTextInput += TxInput_PreviewTextInput1;
+
+            txInput.Focus();
+        }
+
         public static void ToNumeric( this TextBox txInput, bool acceptTrace = false )
         {
             if( acceptTrace )

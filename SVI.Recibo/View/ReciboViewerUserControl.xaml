@@ -8,6 +8,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800" >
     <Grid>
+        <Grid.ContextMenu>
+            <ContextMenu x:Name="MenuContextMenu">
+                <MenuItem x:Name="FecharMenuItem" Header="Fechar" Click="FecharMenuItem_Click"/>
+            </ContextMenu>
+        </Grid.ContextMenu>
         <WindowsFormsHost Margin="10">
             <rp:ReportViewer x:Name="reportViewer" Load="reportViewer_Load"></rp:ReportViewer>
         </WindowsFormsHost>

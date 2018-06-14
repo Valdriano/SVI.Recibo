@@ -34,7 +34,6 @@ namespace SVI.Recibo.View
 
                 reportViewer.LocalReport.DataSources.Add( dataSource );
                 reportViewer.LocalReport.ReportEmbeddedResource = "SVI.Recibo.Reports.ReciboReport.rdlc";
-                //reportViewer.LocalReport.ReportEmbeddedResource = "ReciboReport.rdlc";
 
                 IList<ReportParameter> rp = new List<ReportParameter>();
 
@@ -53,6 +52,11 @@ namespace SVI.Recibo.View
 
                 MessageBox.Show( ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error );
             }
+        }
+
+        private void FecharMenuItem_Click( object sender, RoutedEventArgs e )
+        {
+            
         }
     }
 }

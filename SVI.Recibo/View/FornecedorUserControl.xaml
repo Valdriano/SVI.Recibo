@@ -6,7 +6,7 @@
              xmlns:ctr="http://schemas.xceed.com/wpf/xaml/toolkit"
              xmlns:cv="clr-namespace:SVI.Recibo.Util"
              mc:Ignorable="d" 
-             d:DesignHeight="631" d:DesignWidth="501" Language="pt-BR" FontFamily="Century Gothic" Height="Auto" Width="Auto" Loaded="UserControl_Loaded">
+             d:DesignHeight="631" d:DesignWidth="501" Language="pt-BR" FontFamily="Century Gothic" Height="Auto" Width="Auto" Loaded="UserControl_Loaded" KeyDown="UserControl_KeyDown">
     <Grid Background="#FF1C1C1C">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="53*"/>
@@ -21,8 +21,8 @@
         <Label Content="Número:" Margin="0,165,2,0" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="Auto"/>
         <Label Content="Complemento:" Margin="0,194,2,0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top"/>
         <TextBox x:Name="IDFornecedorTextBox" Margin="4,14,0,0" TextWrapping="Wrap" Text="1" TextAlignment="Center" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="39" Grid.Column="1"/>
-        <TextBox x:Name="FornecedorTextBox" Margin="4,37,0,0" TextWrapping="Wrap" Text="Novo Fornecedor" VerticalAlignment="Top" MaxLength="60" HorizontalAlignment="Left" Width="286" Grid.Column="1" TabIndex="1"/>
-        <TextBox x:Name="CPFCNPJTextBox" Margin="4,64,0,0" TextWrapping="Wrap" Text="00000000000" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="14" Width="286" Grid.Column="1"  TabIndex="2">
+        <TextBox x:Name="FornecedorTextBox" Margin="4,37,21,0" Text="Novo Fornecedor" VerticalAlignment="Top" MaxLength="60" Grid.Column="1" TabIndex="1" TextOptions.TextHintingMode="Animated"/>
+        <TextBox x:Name="CPFCNPJTextBox" Margin="4,64,0,0" Text="00000000000" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="14" Width="206" Grid.Column="1"  TabIndex="2" TextOptions.TextFormattingMode="Display">
             <!--<ctr:MaskedTextBox.Triggers>
                 <Trigger SourceName="CPFCNPJTextBox" Property="Text" Value="11">
                     
@@ -34,10 +34,10 @@
                 </DataTrigger>
             </control:MaskedTextBox.Triggers>-->
         </TextBox>
-        <TextBox x:Name="BairroTextBox" Margin="4,118,0,0" TextWrapping="Wrap" Text="Novo Bairro" VerticalAlignment="Top" HorizontalAlignment="Left" MaxLength="60" Width="286" Grid.Column="1" TabIndex="4"/>
-        <TextBox x:Name="LogradouroTextBox" Margin="4,145,0,0" TextWrapping="Wrap" Text="Rua Nova" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="40" Width="286" Grid.Column="1" TabIndex="5"/>
-        <TextBox x:Name="NumeroTextBox" Margin="4,169,0,0" TextWrapping="Wrap" Text="A 57" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="10" Width="57" Grid.Column="1" TabIndex="6"/>
-        <TextBox x:Name="ComplementoTextBox" Margin="4,193,0,0" TextWrapping="Wrap" Text="Proximo ao" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="60" Width="286" Height="38" Grid.Column="1" TabIndex="7"/>
+        <TextBox x:Name="BairroTextBox" Margin="4,118,21,0" Text="Novo Bairro" VerticalAlignment="Top" MaxLength="60" Grid.Column="1" TabIndex="4"/>
+        <TextBox x:Name="LogradouroTextBox" Margin="4,145,21,0" Text="Rua Nova" VerticalAlignment="Top" MaxLength="40" Grid.Column="1" TabIndex="5"/>
+        <TextBox x:Name="NumeroTextBox" Margin="4,169,0,0" Text="A 57" HorizontalAlignment="Left" VerticalAlignment="Top" MaxLength="10" Width="57" Grid.Column="1" TabIndex="6"/>
+        <TextBox x:Name="ComplementoTextBox" Margin="4,193,21,0" Text="Proximo ao" VerticalAlignment="Top" MaxLength="60" Height="38" Grid.Column="1" TabIndex="7"/>
         <GroupBox Header="Logo Fornecedor" Margin="4,236,0,0" Foreground="White" Height="130" VerticalAlignment="Top" HorizontalAlignment="Left" Width="206" Grid.Column="1">
             <GroupBox.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -56,7 +56,7 @@
                 <DataGridTextColumn Binding="{Binding CPFCNPJ}" ClipboardContentBinding="{x:Null}" FontFamily="Century Gothic" Header="CPF / CNPJ"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="CEPTextBox" Margin="4,91,0,0" TextWrapping="Wrap" Text="69093-010" VerticalAlignment="Top" HorizontalAlignment="Left" Width="79" Grid.Column="1" TabIndex="3"/>
+        <TextBox x:Name="CEPTextBox" Margin="4,91,0,0" Text="69093-010" VerticalAlignment="Top" HorizontalAlignment="Left" Width="79" Grid.Column="1" TabIndex="3"/>
         <Button x:Name="SalvarButton" Content="Salvar" HorizontalAlignment="Left" Margin="26,0,0,8" Width="75" Background="#FF1C1C1C" Foreground="White" VerticalAlignment="Bottom" Click="SalvarButton_Click" TabIndex="10"/>
         <Button x:Name="CancelarButton" Content="Cancelar" HorizontalAlignment="Left" Margin="129,0,0,8" VerticalAlignment="Bottom" Width="75" Background="#FF1C1C1C" Foreground="White" Grid.ColumnSpan="2" Click="CancelarButton_Click" TabIndex="11"/>
         <Button x:Name="NovoButton" Content="Novo" HorizontalAlignment="Left" Margin="70,0,0,8" VerticalAlignment="Bottom" Width="75" Background="#FF1C1C1C" Foreground="White" Grid.Column="1" Click="NovoButton_Click" TabIndex="12"/>

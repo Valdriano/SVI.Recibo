@@ -23,7 +23,7 @@ namespace SVI.Recibo.View
 
             this.IDFornecedorTextBox.ToNumeric();
             this.CPFCNPJTextBox.ToNumeric();
-            this.CEPTextBox.ToNumeric();
+            this.CEPTextBox.ToNumeric();   
         }
 
         private void UserControl_Loaded( object sender, RoutedEventArgs e )
@@ -141,6 +141,8 @@ namespace SVI.Recibo.View
         private void NovoButton_Click( object sender, RoutedEventArgs e )
         {
             this.HabilitarControles();
+
+            this.fornecedor = null;
         }
 
         private void EditarButton_Click( object sender, RoutedEventArgs e )
@@ -207,6 +209,11 @@ namespace SVI.Recibo.View
 
                 this.LogoImage.Source = bitmap;
             }
+        }
+
+        private void UserControl_KeyDown( object sender, System.Windows.Input.KeyEventArgs e )
+        {
+            e.MudarFocoComEnter();
         }
     }
 }
