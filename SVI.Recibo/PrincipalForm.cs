@@ -1,4 +1,6 @@
-﻿using SVI.Recibo.View;
+﻿using SVI.Recibo.Model;
+using SVI.Recibo.Repository;
+using SVI.Recibo.View;
 using System;
 using System.Drawing;
 using System.Reflection;
@@ -8,6 +10,7 @@ namespace SVI.Recibo
 {
     public partial class PrincipalForm : Form
     {
+        private IRepository<Configuracao, int> confRepository = new ConfiguracaoRepository( new Context.SVIReciboDbContext() );
         private InicioUserControl inicioView;
         private ReciboUserControl reciboView;
         private FornecedorUserControl fornecedorView;
@@ -34,9 +37,12 @@ namespace SVI.Recibo
 
             VersaotoolStripStatusLabel.Text = $"Versão: {version.Major}.{version.Minor}.{version.Build}.{version.Revision}";
 
+            this.FechaSubbutton.Visible = false;
             this._MouseMove = false;
             this.splitContainer.IsSplitterFixed = true;
             this.splitContainer.FixedPanel = FixedPanel.Panel1;
+
+            confRepository.SelecionarPorId( 1 );
 
             this.Iniciobutton.PerformClick();
         }
@@ -157,5 +163,10 @@ namespace SVI.Recibo
         }
 
         public void SetUserControlWPF( System.Windows.Controls.UserControl control ) => WPFelementHost.Child = control;
+
+        private void FechaSubbutton_Click( object sender, EventArgs e )
+        {
+
+        }
     }
 }

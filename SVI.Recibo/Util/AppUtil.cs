@@ -407,8 +407,8 @@ namespace SVI.Recibo.Util
             else
                 txInput.PreviewTextInput += TxInput_PreviewTextInput1;
 
-            //if( string.IsNullOrEmpty( txInput.Text ) )
-            //    txInput.Text = "0";
+            if( string.IsNullOrEmpty( txInput.Text ) )
+                txInput.Text = "0";
             txInput.LostFocus += TxInput_LostFocus2;
             txInput.GotFocus += TxInput_GotFocus;
             txInput.TextChanged += TxInput_TextChanged1;

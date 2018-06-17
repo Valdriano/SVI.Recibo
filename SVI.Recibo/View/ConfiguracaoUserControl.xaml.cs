@@ -38,6 +38,8 @@ namespace SVI.Recibo.View
                 if( config == null )
                 {
                     MessageBox.Show( "Não foi possivel carregar as configurações", "Aviso", MessageBoxButton.OK, MessageBoxImage.Error );
+
+                    config = new Configuracao();
                 }
                 else
                 {
@@ -96,7 +98,16 @@ namespace SVI.Recibo.View
                     config.Local = this.LocalTextBox.Text;
                     config.Proprietario = this.ProprietarioTextBox.Text;
 
-                    repository.Atualizar( config );
+                    if( config.IDConfiguracao == 0 )
+                    {
+                        config.IDConfiguracao = 1;
+
+                        repository.Inserir( config );
+                    }
+                    else
+                    {
+                        repository.Atualizar( config );
+                    }                    
 
                     MessageBox.Show( "Configuração salva com sucesso!", "Informação", MessageBoxButton.OK, MessageBoxImage.Information );
 

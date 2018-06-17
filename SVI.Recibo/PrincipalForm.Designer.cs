@@ -44,6 +44,7 @@
             this.Iniciobutton = new System.Windows.Forms.Button();
             this.Contentpanel = new System.Windows.Forms.Panel();
             this.WPFelementHost = new System.Windows.Forms.Integration.ElementHost();
+            this.FechaSubbutton = new System.Windows.Forms.Button();
             this.Superiorpanel.SuspendLayout();
             this.InferiorstatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -165,6 +166,7 @@
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.Controls.Add(this.FechaSubbutton);
             this.splitContainer.Panel2.Controls.Add(this.Contentpanel);
             this.splitContainer.Size = new System.Drawing.Size(983, 537);
             this.splitContainer.SplitterDistance = 328;
@@ -278,6 +280,20 @@
             this.WPFelementHost.Text = "Elemento";
             this.WPFelementHost.Child = null;
             // 
+            // FechaSubbutton
+            // 
+            this.FechaSubbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FechaSubbutton.FlatAppearance.BorderSize = 0;
+            this.FechaSubbutton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.FechaSubbutton.Image = global::SVI.Recibo.Properties.Resources.close_box;
+            this.FechaSubbutton.Location = new System.Drawing.Point(602, 0);
+            this.FechaSubbutton.Name = "FechaSubbutton";
+            this.FechaSubbutton.Size = new System.Drawing.Size(32, 24);
+            this.FechaSubbutton.TabIndex = 4;
+            this.FechaSubbutton.TabStop = false;
+            this.FechaSubbutton.UseVisualStyleBackColor = true;
+            this.FechaSubbutton.Click += new System.EventHandler(this.FechaSubbutton_Click);
+            // 
             // PrincipalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -327,6 +343,7 @@
         private System.Windows.Forms.Panel Contentpanel;
         private System.Windows.Forms.Button Configuracaobutton;
         private System.Windows.Forms.Integration.ElementHost WPFelementHost;
+        private System.Windows.Forms.Button FechaSubbutton;
     }
 }
 

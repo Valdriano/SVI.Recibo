@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "SVI Recibo"
-#define MyAppVersion "1.0.0.2"
+#define MyAppVersion "1.0.0.3"
 #define MyAppPublisher "Empresa de desenvolvimento de Software"
 ;#define MyAppURL "https://valdriano.github.io/"
 #define MyAppURL "https:google.com.br"

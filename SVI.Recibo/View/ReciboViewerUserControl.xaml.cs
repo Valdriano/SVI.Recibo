@@ -13,6 +13,8 @@ namespace SVI.Recibo.View
     /// </summary>
     public partial class ReciboViewerUserControl : UserControl
     {
+        public event EventHandler FecharChild;
+
         protected EmitirRecibo emitirRecibo;
 
         public ReciboViewerUserControl( EmitirRecibo emitirRecibo )
@@ -50,13 +52,19 @@ namespace SVI.Recibo.View
             catch( LocalProcessingException ex )
             {
 
-                MessageBox.Show( ex.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error );
+                MessageBox.Show( ex.Message + "\nTrace de Linha: " + ex.StackTrace, "Erro", MessageBoxButton.OK, MessageBoxImage.Error );
+            }
+            catch( Exception ex )
+            {
+                MessageBox.Show( ex.Message + "\nTrace de Linha: " + ex.StackTrace, "Erro", MessageBoxButton.OK, MessageBoxImage.Error );
             }
         }
 
         private void FecharMenuItem_Click( object sender, RoutedEventArgs e )
         {
-            
+
         }
+
+        
     }
 }
