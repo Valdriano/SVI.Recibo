@@ -18,7 +18,7 @@ namespace SVI.Recibo.Infra.TypesConfigurations
         protected override void ChaveEstrangeira()
         {
             this.HasRequired( x => x.Estado ).WithMany( x => x.Configuracoes ).HasForeignKey( x => x.IdEstado );
-            
+            this.HasRequired( x => x.Municipio ).WithMany( x => x.Configuracoes ).HasForeignKey( x => x.IdMunicipio );
         }
 
         protected override void ChavePrimaria()

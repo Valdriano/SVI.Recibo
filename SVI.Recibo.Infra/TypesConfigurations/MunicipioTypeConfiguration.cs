@@ -1,9 +1,4 @@
 ﻿using SVI.Recibo.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SVI.Recibo.Infra.TypesConfigurations
 {
@@ -11,12 +6,14 @@ namespace SVI.Recibo.Infra.TypesConfigurations
     {
         protected override void Campos()
         {
-            throw new NotImplementedException();
+            this.Property( x => x.Descricao ).HasMaxLength( 40 ).IsRequired();
+            this.Property( x => x.Id ).HasDatabaseGeneratedOption( System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity ).IsRequired();
+            this.Property( x => x.IdEstado ).IsRequired();
         }
 
         protected override void ChaveEstrangeira()
         {
-            this.HasOptional( x => x.Estado ).WithMany( x => x.Municipios ).HasForeignKey( x => x.IdEstado );
+            this.HasRequired( x => x.Estado ).WithMany( x => x.Municipios ).HasForeignKey( x => x.IdEstado );            
         }
 
         protected override void ChavePrimaria()

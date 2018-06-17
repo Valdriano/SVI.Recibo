@@ -47,8 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomHistory.cs" />
+    <Compile Include="Migrations\201806171451033_Versao_1_0_0_0.cs" />
+    <Compile Include="Migrations\201806171451033_Versao_1_0_0_0.Designer.cs">
+      <DependentUpon>201806171451033_Versao_1_0_0_0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SVIReciboDbContext.cs" />
+    <Compile Include="SVIReciboDbInitializer.cs" />
     <Compile Include="TypesConfigurations\AbstractTypeConfguration.cs" />
     <Compile Include="TypesConfigurations\ConfiguracaoTypeConfiguration.cs" />
     <Compile Include="TypesConfigurations\EstadosTypeConfiguration.cs" />
@@ -63,6 +71,15 @@
       <Project>{21D25499-7602-4CA3-8AD2-BB73B017AC7B}</Project>
       <Name>SVI.Recibo.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SVI.SQLite.CodeFirst\SVI.SQLite.CodeFirst.csproj">
+      <Project>{97EEC708-C450-4633-BF69-942FFC480FDC}</Project>
+      <Name>SVI.SQLite.CodeFirst</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806171451033_Versao_1_0_0_0.resx">
+      <DependentUpon>201806171451033_Versao_1_0_0_0.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
