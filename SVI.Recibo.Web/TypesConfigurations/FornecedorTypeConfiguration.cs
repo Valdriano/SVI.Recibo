@@ -8,9 +8,9 @@ namespace SVI.Recibo.Web.TypesConfigurations
         {
             Property( x => x.Bairro ).HasMaxLength( 40 ).IsRequired();
             Property( x => x.CEP ).IsOptional();
-            Property( x => x.CNPJ ).IsOptional();
+            Property( x => x.CNPJ ).HasMaxLength( 14 ).IsOptional();
             Property( x => x.Complemento ).HasMaxLength( 40 ).IsOptional();
-            Property( x => x.CPF ).IsOptional();
+            Property( x => x.CPF ).HasMaxLength( 11 ).IsOptional();
             Property( x => x.Fantasia ).HasMaxLength( 40 ).IsOptional();
             Property( x => x.Id ).HasDatabaseGeneratedOption( System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity ).IsRequired();
             Property( x => x.IdEstado ).IsRequired();

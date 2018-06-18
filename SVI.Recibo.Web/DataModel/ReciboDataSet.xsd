@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ReciboDataSet" targetNamespace="http://tempuri.org/ReciboDataSet.xsd" xmlns:mstns="http://tempuri.org/ReciboDataSet.xsd" xmlns="http://tempuri.org/ReciboDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ReciboDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ReciboDataSet" msprop:Generator_UserDSName="ReciboDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Recibo" msprop:Generator_TableClassName="ReciboDataTable" msprop:Generator_TableVarName="tableRecibo" msprop:Generator_RowChangedName="ReciboRowChanged" msprop:Generator_TablePropName="Recibo" msprop:Generator_RowDeletingName="ReciboRowDeleting" msprop:Generator_RowChangingName="ReciboRowChanging" msprop:Generator_RowEvHandlerName="ReciboRowChangeEventHandler" msprop:Generator_RowDeletedName="ReciboRowDeleted" msprop:Generator_RowClassName="ReciboRow" msprop:Generator_UserTableName="Recibo" msprop:Generator_RowEvArgName="ReciboRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="IdRecibo" msprop:Generator_ColumnVarNameInTable="columnIdRecibo" msprop:Generator_ColumnPropNameInRow="IdRecibo" msprop:Generator_ColumnPropNameInTable="IdReciboColumn" msprop:Generator_UserColumnName="IdRecibo" type="xs:int" minOccurs="0" />
+              <xs:element name="Fornecedor" msprop:Generator_ColumnVarNameInTable="columnFornecedor" msprop:Generator_ColumnPropNameInRow="Fornecedor" msprop:Generator_ColumnPropNameInTable="FornecedorColumn" msprop:Generator_UserColumnName="Fornecedor" type="xs:string" minOccurs="0" />
+              <xs:element name="Bairro" msprop:Generator_ColumnVarNameInTable="columnBairro" msprop:Generator_ColumnPropNameInRow="Bairro" msprop:Generator_ColumnPropNameInTable="BairroColumn" msprop:Generator_UserColumnName="Bairro" type="xs:string" minOccurs="0" />
+              <xs:element name="Logradouro" msprop:Generator_ColumnVarNameInTable="columnLogradouro" msprop:Generator_ColumnPropNameInRow="Logradouro" msprop:Generator_ColumnPropNameInTable="LogradouroColumn" msprop:Generator_UserColumnName="Logradouro" type="xs:string" minOccurs="0" />
+              <xs:element name="CEP" msprop:Generator_ColumnVarNameInTable="columnCEP" msprop:Generator_ColumnPropNameInRow="CEP" msprop:Generator_ColumnPropNameInTable="CEPColumn" msprop:Generator_UserColumnName="CEP" type="xs:int" minOccurs="0" />
+              <xs:element name="Municipio" msprop:Generator_ColumnVarNameInTable="columnMunicipio" msprop:Generator_ColumnPropNameInRow="Municipio" msprop:Generator_ColumnPropNameInTable="MunicipioColumn" msprop:Generator_UserColumnName="Municipio" type="xs:string" minOccurs="0" />
+              <xs:element name="Valor" msprop:Generator_ColumnVarNameInTable="columnValor" msprop:Generator_ColumnPropNameInRow="Valor" msprop:Generator_ColumnPropNameInTable="ValorColumn" msprop:Generator_UserColumnName="Valor" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Referente" msprop:Generator_ColumnVarNameInTable="columnReferente" msprop:Generator_ColumnPropNameInRow="Referente" msprop:Generator_ColumnPropNameInTable="ReferenteColumn" msprop:Generator_UserColumnName="Referente" type="xs:string" minOccurs="0" />
+              <xs:element name="CPNJ" msprop:Generator_ColumnVarNameInTable="columnCPNJ" msprop:Generator_ColumnPropNameInRow="CPNJ" msprop:Generator_ColumnPropNameInTable="CPNJColumn" msprop:Generator_UserColumnName="CPNJ" type="xs:string" minOccurs="0" />
+              <xs:element name="Logo" msprop:Generator_ColumnVarNameInTable="columnLogo" msprop:Generator_ColumnPropNameInRow="Logo" msprop:Generator_ColumnPropNameInTable="LogoColumn" msprop:Generator_UserColumnName="Logo" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Extenso" msprop:Generator_ColumnVarNameInTable="columnExtenso" msprop:Generator_ColumnPropNameInRow="Extenso" msprop:Generator_ColumnPropNameInTable="ExtensoColumn" msprop:Generator_UserColumnName="Extenso" type="xs:string" minOccurs="0" />
+              <xs:element name="Ano" msprop:Generator_ColumnVarNameInTable="columnAno" msprop:Generator_ColumnPropNameInRow="Ano" msprop:Generator_ColumnPropNameInTable="AnoColumn" msprop:Generator_UserColumnName="Ano" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

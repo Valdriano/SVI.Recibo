@@ -12,8 +12,8 @@ namespace SVI.Recibo.Web.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Fantasia { get; set; }
-        public long CPF { get; set; }
-        public long CNPJ { get; set; }
+        public string CPF { get; set; }
+        public string CNPJ { get; set; }
         public int CEP { get; set; }
         public string Bairro { get; set; }
         public string Logradouro { get; set; }

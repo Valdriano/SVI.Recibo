@@ -6,8 +6,8 @@ namespace SVI.Recibo.Web.TypesConfigurations
     {
         protected override void Campos()
         {
-            Property( x => x.CNPJ ).IsOptional();
-            Property( x => x.CPF ).IsOptional();
+            Property( x => x.CNPJ ).HasMaxLength( 14 ).IsOptional();
+            Property( x => x.CPF ).HasMaxLength( 11 ).IsOptional();
             Property( x => x.Email ).HasMaxLength( 100 ).IsOptional();
             Property( x => x.Id ).HasDatabaseGeneratedOption( System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity ).IsRequired();
             Property( x => x.IdEstado ).IsRequired();
