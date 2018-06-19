@@ -8,6 +8,11 @@ namespace SVI.Recibo.Web
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles( BundleCollection bundles )
         {
+            bundles.Add( new ScriptBundle( "~/bundles/dataTables" ).Include(
+                         "~/Scripts/DataTables/dataTables.bootstrap4.min.js",
+                         "~/Scripts/DataTables/jquery.dataTables.min.js",
+                         "~/Scripts/DataTables/jquery-3.3.1.js" ) );
+
             bundles.Add( new ScriptBundle( "~/bundles/jquery" ).Include(
                         "~/Scripts/jquery-{version}.js" ) );
 
@@ -27,6 +32,9 @@ namespace SVI.Recibo.Web
             bundles.Add( new StyleBundle( "~/Content/css" ).Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css" ) );
+
+            bundles.Add( new StyleBundle( "~/Content/dataTables" ).Include(
+                "~/Content/DataTables/jquery.dataTables.min.css" ) );
         }
     }
 }

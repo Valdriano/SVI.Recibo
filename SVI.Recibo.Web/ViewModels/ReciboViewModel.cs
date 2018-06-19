@@ -34,7 +34,7 @@ namespace SVI.Recibo.Web.ViewModels
         [Required( ErrorMessage = "O Município é obrigatório" )]
         public int IdMunicipio { get; set; }
 
-        [Display(Name = "Quantidade de impressões")]
+        [Display(Name = "Impressões")]
         public int QuantidadeImpressao { get; set; }
 
 

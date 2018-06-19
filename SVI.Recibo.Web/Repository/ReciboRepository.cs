@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using SVI.Recibo.Web.Context;
 using System.Data.Entity;
 using System.Linq;
+using SVI.Recibo.Web.Models;
 
 namespace SVI.Recibo.Web.Repository
 {
@@ -25,6 +26,11 @@ namespace SVI.Recibo.Web.Repository
             {
                 return dbContext.Set<Models.Recibo>().Where( where ).Include( x => x.Fornecedor ).Include( x => x.Estado ).Include( x => x.Municipio ).ToList();
             }
+        }
+
+        internal Models.Recibo Get( object id )
+        {
+            return dbContext.Set<Models.Recibo>().Find( id );
         }
     }
 }
