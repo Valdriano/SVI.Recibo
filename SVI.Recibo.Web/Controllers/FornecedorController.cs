@@ -43,13 +43,23 @@ namespace SVI.Recibo.Web.Controllers
         // POST: Fornecedor/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( FornecedorViewModel viewModel )
+        public ActionResult Create( FornecedorViewModel viewModel , HttpPostedFileBase file )
         {
             try
             {
                 if( !ModelState.IsValid )
                 {
                     return View( viewModel );
+                }
+
+                if( file != null )
+                {
+                    String[] strName = file.FileName.Split( '.' );
+                    String strExt = strName[ strName.Count() - 1 ];
+                    string pathSave = String.Format( "{0}{1}.{2}", Server.MapPath( "~/Imagens/" ), viewModel.Id, strExt );
+                    String pathBase = String.Format( "/Imagens/{0}.{1}", viewModel.Id, strExt );
+                    file.SaveAs( pathSave );
+                    //viewModel.Logo = pathBase;
                 }
 
                 var fornecedor = AutoMapperManager.Instance.Mapper.Map<FornecedorViewModel, Fornecedor>( viewModel );

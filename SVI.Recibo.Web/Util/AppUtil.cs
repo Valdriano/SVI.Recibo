@@ -139,7 +139,7 @@ namespace SVI.Recibo.Web.Util
             }
         }
 
-        public static string MaskCPFCNPJ( this long value )
+        public static string MaskCPFCNPJ( this object value )
         {
             string str = Convert.ToString( value );
 
@@ -205,6 +205,45 @@ namespace SVI.Recibo.Web.Util
             }
             else
                 return Convert.ToString( value );
+        }
+
+        public static string MaskCEP( this object value )
+        {
+            string str = Convert.ToString( value );
+
+            if( str.Length == 8 )
+            {
+                string cep = "";
+                int count = 0;
+
+                foreach( char c in str )
+                {
+                    count++;
+
+                    switch( count )
+                    {
+                        case 1:
+                        case 2:
+                        case 3:
+                        case 4:
+                        case 5:
+                            cep += c;
+                            break;
+                        case 6:
+                            cep += "-";
+                            break;
+                        case 7:
+                        case 8:
+                        case 9:
+                            cep += c;
+                            break;
+                    }
+                }
+
+                return cep;
+            }
+
+            return str;
         }
     }
 }

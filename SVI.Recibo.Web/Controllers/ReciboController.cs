@@ -113,115 +113,8 @@ namespace SVI.Recibo.Web.Controllers
             }
         }
 
-        public ActionResult Preview()
-        {
-            ReciboService service = new ReciboService( repository.GetList() );
-
-            service.BasePath = Server.MapPath( "/" );
-
-            service.PageTitle = "Relatório de Duplicatas";
-            service.PageTitle = "Relatório de Duplicatas";
-            service.ImprimirCabecalhoPadrao = true;
-            service.ImprimirRodapePadrao = true;
-
-            return File( service.GetOutput().GetBuffer(), "application/pdf" );
-        }
-
-        //public HttpResponseMessage Visualizar()
-        //{
-        //    List<Models.Recibo> recibos = repository.GetList();
-
-        //    ReciboDataTable dt = new ReciboDataTable();
-
-        //    foreach( Models.Recibo rec in recibos )
-        //    {
-        //        ReciboRow dr = dt.NewReciboRow();
-
-        //        dr.Ano = DateTime.Now.Year;
-        //        dr.Bairro = rec.Fornecedor.Bairro;
-        //        dr.CEP = rec.Fornecedor.CEP;
-        //        dr.CPNJ = rec.Fornecedor.CNPJ;
-        //        dr.Extenso = AppUtil.EscreverExtenso( rec.Valor );
-        //        dr.Fornecedor = rec.Fornecedor.Nome;
-        //        dr.IdRecibo = rec.Id;
-        //        dr.Logo = rec.Fornecedor.Logo;
-        //        dr.Logradouro = rec.Fornecedor.Logradouro;
-        //        dr.Municipio = rec.Municipio.Descricao;
-        //        dr.Referente = rec.Referencia;
-        //        dr.Valor = rec.Valor;
-
-        //        dt.AddReciboRow( dr );
-        //    }
-
-        //    return ReportPdfApi.GetPDF( "ReciboReport.rdlc", "dsRecibo", dt.ToList() );
-        //}
-
-        //public ActionResult Visualizar()
-        //{
-        //    List<Models.Recibo> recibos = repository.GetList();
-
-        //    ReciboDataTable dt = new ReciboDataTable();
-
-        //    foreach( Models.Recibo rec in recibos )
-        //    {
-        //        ReciboRow dr = dt.NewReciboRow();
-
-        //        dr.Ano = DateTime.Now.Year;
-        //        dr.Bairro = rec.Fornecedor.Bairro;
-        //        dr.CEP = rec.Fornecedor.CEP;
-        //        dr.CPNJ = rec.Fornecedor.CNPJ;
-        //        dr.Extenso = AppUtil.EscreverExtenso( rec.Valor );
-        //        dr.Fornecedor = rec.Fornecedor.Nome;
-        //        dr.IdRecibo = rec.Id;
-        //        dr.Logo = rec.Fornecedor.Logo;
-        //        dr.Logradouro = rec.Fornecedor.Logradouro;
-        //        dr.Municipio = rec.Municipio.Descricao;
-        //        dr.Referente = rec.Referencia;
-        //        dr.Valor = rec.Valor;
-
-        //        dt.AddReciboRow( dr );
-        //    }
-
-        //    System.IO.MemoryStream stream = ReportPdfApi.OutPut( "ReciboReport.rdlc", "dsRecibo", dt.ToList() );
-
-        //    return File( stream.GetBuffer(), "application/pdf" );
-        //}
-
-        //public ActionResult Visualizar()
-        //{
-
-        //    List<Models.Recibo> recibos = repository.GetList();
-
-        //    ReciboDataTable dt = new ReciboDataTable();
-
-        //    foreach( Models.Recibo rec in recibos )
-        //    {
-        //        ReciboRow dr = dt.NewReciboRow();
-
-        //        dr.Ano = DateTime.Now.Year;
-        //        dr.Bairro = rec.Fornecedor.Bairro;
-        //        dr.CEP = rec.Fornecedor.CEP;
-        //        dr.CPNJ = rec.Fornecedor.CNPJ;
-        //        dr.Extenso = AppUtil.EscreverExtenso( rec.Valor );
-        //        dr.Fornecedor = rec.Fornecedor.Nome;
-        //        dr.IdRecibo = rec.Id;
-        //        dr.Logo = rec.Fornecedor.Logo;
-        //        dr.Logradouro = rec.Fornecedor.Logradouro;
-        //        dr.Municipio = rec.Municipio.Descricao;
-        //        dr.Referente = rec.Referencia;
-        //        dr.Valor = rec.Valor;
-
-        //        dt.AddReciboRow( dr );
-        //    }
-
-        //    var request = ReportPdfApi.GetPDF( "ReciboReport.rdlc", "dsRecibo", dt.ToList() );
-
-        //    return File( request.Content.ReadAsAsync<byte[]>().GetAwaiter().GetResult().GetBuffer(), "application/pdf" );
-        //}
-
         public ActionResult Visualizar()
         {
-
             List<Models.Recibo> recibos = repository.GetList();
 
             ReciboDataTable dt = new ReciboDataTable();
@@ -232,8 +125,8 @@ namespace SVI.Recibo.Web.Controllers
 
                 dr.Ano = DateTime.Now.Year;
                 dr.Bairro = rec.Fornecedor.Bairro;
-                dr.CEP = rec.Fornecedor.CEP;
-                dr.CPNJ = rec.Fornecedor.CNPJ;
+                dr.CEP = AppUtil.MaskCEP( rec.Fornecedor.CEP );
+                dr.CPNJ = AppUtil.MaskCPFCNPJ( rec.Fornecedor.CNPJ );
                 dr.Extenso = AppUtil.EscreverExtenso( rec.Valor );
                 dr.Fornecedor = rec.Fornecedor.Nome;
                 dr.IdRecibo = rec.Id;
@@ -246,25 +139,55 @@ namespace SVI.Recibo.Web.Controllers
                 dt.AddReciboRow( dr );
             }
 
-            Microsoft.Reporting.WebForms.LocalReport report = new Microsoft.Reporting.WebForms.LocalReport();
-            report.ReportPath = System.Web.Hosting.HostingEnvironment.MapPath( "~/Reports/" + "ReciboReport.rdlc" );
-            report.DataSources.Add( new Microsoft.Reporting.WebForms.ReportDataSource( "dsRecibo", dt.ToList() ) );
-
-            //if( parameters != null )
-            //{
-            //    report.SetParameters( parameters );
-            //}
-
-            report.Refresh();
-
-            string mimeType = "";
-            string encoding = "";
-            string filenameExtension = "";
-            string[] streams = null;
-            Microsoft.Reporting.WebForms.Warning[] warnings = null;
-            byte[] bytes = report.Render( "PDF", null, out mimeType, out encoding, out filenameExtension, out streams, out warnings );
-
-            return File( bytes, mimeType );
+            return File( ReciboService.GetPDF_Recibo( "ReciboReport.rdlc", "dsRecibo", dt.ToList() ), "application/pdf" );
         }
+
+        //public ActionResult Visualizar()
+        //{
+
+        //    List<Models.Recibo> recibos = repository.GetList();
+
+        //    ReciboDataTable dt = new ReciboDataTable();
+
+        //    foreach( Models.Recibo rec in recibos )
+        //    {
+        //        ReciboRow dr = dt.NewReciboRow();
+
+        //        dr.Ano = DateTime.Now.Year;
+        //        dr.Bairro = rec.Fornecedor.Bairro;
+        //        dr.CEP = rec.Fornecedor.CEP;
+        //        dr.CPNJ = rec.Fornecedor.CNPJ;
+        //        dr.Extenso = AppUtil.EscreverExtenso( rec.Valor );
+        //        dr.Fornecedor = rec.Fornecedor.Nome;
+        //        dr.IdRecibo = rec.Id;
+        //        dr.Logo = rec.Fornecedor.Logo;
+        //        dr.Logradouro = rec.Fornecedor.Logradouro;
+        //        dr.Municipio = rec.Municipio.Descricao;
+        //        dr.Referente = rec.Referencia;
+        //        dr.Valor = rec.Valor;
+
+        //        dt.AddReciboRow( dr );
+        //    }
+
+        //    Microsoft.Reporting.WebForms.LocalReport report = new Microsoft.Reporting.WebForms.LocalReport();
+        //    report.ReportPath = System.Web.Hosting.HostingEnvironment.MapPath( "~/Reports/" + "ReciboReport.rdlc" );
+        //    report.DataSources.Add( new Microsoft.Reporting.WebForms.ReportDataSource( "dsRecibo", dt.ToList() ) );
+
+        //    //if( parameters != null )
+        //    //{
+        //    //    report.SetParameters( parameters );
+        //    //}
+
+        //    report.Refresh();
+
+        //    string mimeType = "";
+        //    string encoding = "";
+        //    string filenameExtension = "";
+        //    string[] streams = null;
+        //    Microsoft.Reporting.WebForms.Warning[] warnings = null;
+        //    byte[] bytes = report.Render( "PDF", null, out mimeType, out encoding, out filenameExtension, out streams, out warnings );
+
+        //    return File( bytes, mimeType );
+        //}
     }
 }

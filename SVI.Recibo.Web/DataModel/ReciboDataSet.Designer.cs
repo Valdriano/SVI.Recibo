@@ -469,7 +469,7 @@ namespace SVI.Recibo.Web.DataModel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public ReciboRow AddReciboRow(int IdRecibo, string Fornecedor, string Bairro, string Logradouro, int CEP, string Municipio, decimal Valor, string Referente, string CPNJ, byte[] Logo, string Extenso, int Ano) {
+            public ReciboRow AddReciboRow(int IdRecibo, string Fornecedor, string Bairro, string Logradouro, string CEP, string Municipio, decimal Valor, string Referente, string CPNJ, byte[] Logo, string Extenso, int Ano) {
                 ReciboRow rowReciboRow = ((ReciboRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IdRecibo,
@@ -531,7 +531,7 @@ namespace SVI.Recibo.Web.DataModel {
                 base.Columns.Add(this.columnBairro);
                 this.columnLogradouro = new global::System.Data.DataColumn("Logradouro", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLogradouro);
-                this.columnCEP = new global::System.Data.DataColumn("CEP", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnCEP = new global::System.Data.DataColumn("CEP", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCEP);
                 this.columnMunicipio = new global::System.Data.DataColumn("Municipio", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMunicipio);
@@ -753,10 +753,10 @@ namespace SVI.Recibo.Web.DataModel {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int CEP {
+            public string CEP {
                 get {
                     try {
-                        return ((int)(this[this.tableRecibo.CEPColumn]));
+                        return ((string)(this[this.tableRecibo.CEPColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'CEP\' in table \'Recibo\' is DBNull.", e);

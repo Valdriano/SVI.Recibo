@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<SVI.Recibo.Web.ViewModels.ReciboViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Início";
 }
 
 <h2>Recibos</h2>
@@ -62,7 +62,7 @@
             @*@Html.ActionLink("Editar", "Edit", new { id=item.Id }) |*@
             @*@Html.ActionLink("Visualizar", "Details", new { id=item.Id }) |*@
             @*@Html.ActionLink("Excluir", "Delete", new { id=item.Id })*@
-            @Html.ActionLink("Visualizar","Visualizar")
+            @Html.ActionLink("Visualizar","Visualizar","Recibo",new { @target = "_blank" } )
         </td>
     </tr>
 }
