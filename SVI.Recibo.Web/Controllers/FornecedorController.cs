@@ -5,6 +5,8 @@ using SVI.Recibo.Web.Repository;
 using SVI.Recibo.Web.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -43,7 +45,7 @@ namespace SVI.Recibo.Web.Controllers
         // POST: Fornecedor/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create( FornecedorViewModel viewModel , HttpPostedFileBase file )
+        public ActionResult Create( FornecedorViewModel viewModel, HttpPostedFileBase file )
         {
             try
             {
@@ -54,12 +56,14 @@ namespace SVI.Recibo.Web.Controllers
 
                 if( file != null )
                 {
-                    String[] strName = file.FileName.Split( '.' );
-                    String strExt = strName[ strName.Count() - 1 ];
-                    string pathSave = String.Format( "{0}{1}.{2}", Server.MapPath( "~/Imagens/" ), viewModel.Id, strExt );
-                    String pathBase = String.Format( "/Imagens/{0}.{1}", viewModel.Id, strExt );
-                    file.SaveAs( pathSave );
-                    //viewModel.Logo = pathBase;
+                    Image image = Image.FromFile( file.FileName );
+
+                    using( MemoryStream memory = new MemoryStream() )
+                    {
+                        image.Save( memory, System.Drawing.Imaging.ImageFormat.Jpeg );
+
+                        viewModel.Logo = memory.ToArray();
+                    }
                 }
 
                 var fornecedor = AutoMapperManager.Instance.Mapper.Map<FornecedorViewModel, Fornecedor>( viewModel );

@@ -245,6 +245,7 @@
     <Compile Include="Controllers\FornecedorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MunicipioController.cs" />
     <Compile Include="Controllers\ReciboController.cs" />
     <Compile Include="DataModel\ReciboDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -422,6 +423,12 @@
     <Content Include="Views\Fornecedor\Edit.cshtml" />
     <Content Include="Views\Recibo\Index.cshtml" />
     <Content Include="Views\Recibo\Create.cshtml" />
+    <Content Include="Views\Municipio\Index.cshtml" />
+    <Content Include="Views\Municipio\Create.cshtml" />
+    <Content Include="Views\Estado\Create.cshtml" />
+    <Content Include="Views\Estado\Edit.cshtml" />
+    <Content Include="Views\Municipio\Edit.cshtml" />
+    <Content Include="Scripts\jquery.validate.custom.pt-br.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

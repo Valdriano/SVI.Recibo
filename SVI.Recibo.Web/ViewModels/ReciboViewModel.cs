@@ -15,7 +15,6 @@ namespace SVI.Recibo.Web.ViewModels
 
         [Display( Name = "Valor" )]
         [Range( 0.01, 9999999.99, ErrorMessage = "O valor de está em 0,01 á 9.999.999,99" )]
-        [DataType( DataType.Currency )]
         public decimal Valor { get; set; }
 
         [Display( Name = "Referente" )]

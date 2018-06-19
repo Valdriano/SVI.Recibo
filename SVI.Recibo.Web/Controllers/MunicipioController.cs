@@ -11,33 +11,37 @@ using System.Web.Mvc;
 
 namespace SVI.Recibo.Web.Controllers
 {
-    public class EstadoController : Controller
+    public class MunicipioController : Controller
     {
-        private EstadoRepository repository = new EstadoRepository( new ApplicationDbContext() );
+        private MunicipioRepository repository = new MunicipioRepository( new ApplicationDbContext() );
+        private EstadoRepository estadoRepository = new EstadoRepository( new ApplicationDbContext() );
 
-        // GET: Estado
+        // GET: Municipio
         public ActionResult Index()
         {
-            List<EstadoViewModel> viewModels = AutoMapperManager.Instance.Mapper.Map<List<Estado>, List<EstadoViewModel>>( repository.GetList() );
+            List<MunicipioViewModel> viewModels = AutoMapperManager.Instance.Mapper.Map<List<Municipio>, List<MunicipioViewModel>>( repository.GetList() );
 
             return View( viewModels );
         }
 
-        // GET: Estado/Details/5
+        // GET: Municipio/Details/5
         public ActionResult Details( int id )
         {
             return View();
         }
 
-        // GET: Estado/Create
+        // GET: Municipio/Create
         public ActionResult Create()
         {
+            ViewBag.IdEstado = new SelectList( estadoRepository.GetList(), "Id", "Descricao" );
+
             return View();
         }
 
-        // POST: Estado/Create
+        // POST: Municipio/Create
         [HttpPost]
-        public ActionResult Create( EstadoViewModel viewModel )
+        [ValidateAntiForgeryToken]
+        public ActionResult Create( MunicipioViewModel viewModel )
         {
             try
             {
@@ -47,9 +51,9 @@ namespace SVI.Recibo.Web.Controllers
                     return View( viewModel );
                 }
 
-                Estado estado = AutoMapperManager.Instance.Mapper.Map<EstadoViewModel, Estado>( viewModel );
+                Municipio municipio = AutoMapperManager.Instance.Mapper.Map<MunicipioViewModel, Municipio>( viewModel );
 
-                repository.Insert( estado );
+                repository.Insert( municipio );
 
                 return RedirectToAction( "Index" );
             }
@@ -59,30 +63,31 @@ namespace SVI.Recibo.Web.Controllers
             }
         }
 
-        // GET: Estado/Edit/5
+        // GET: Municipio/Edit/5
         public ActionResult Edit( int id )
         {
-            EstadoViewModel viewModel = AutoMapperManager.Instance.Mapper.Map<Estado, EstadoViewModel>( repository.Get( id ) );
+            ViewBag.IdEstado = new SelectList( estadoRepository.GetList(), "Id", "Descricao" );
+
+            MunicipioViewModel viewModel = AutoMapperManager.Instance.Mapper.Map<Municipio, MunicipioViewModel>( repository.Get( id ) );
 
             return View( viewModel );
         }
 
-        // POST: Estado/Edit/5
+        // POST: Municipio/Edit/5
         [HttpPost]
-        public ActionResult Edit( int id, EstadoViewModel viewModel )
+        public ActionResult Edit( int id, MunicipioViewModel viewModel )
         {
             try
             {
                 // TODO: Add update logic here
-
                 if( !ModelState.IsValid )
                 {
                     return View( viewModel );
                 }
 
-                Estado estado = AutoMapperManager.Instance.Mapper.Map<EstadoViewModel, Estado>( viewModel );
+                Municipio municipio = AutoMapperManager.Instance.Mapper.Map<MunicipioViewModel, Municipio>( viewModel );
 
-                repository.Update( estado );
+                repository.Update( municipio );
 
                 return RedirectToAction( "Index" );
             }
@@ -92,13 +97,13 @@ namespace SVI.Recibo.Web.Controllers
             }
         }
 
-        // GET: Estado/Delete/5
+        // GET: Municipio/Delete/5
         public ActionResult Delete( int id )
         {
             return View();
         }
 
-        // POST: Estado/Delete/5
+        // POST: Municipio/Delete/5
         [HttpPost]
         public ActionResult Delete( int id, FormCollection collection )
         {

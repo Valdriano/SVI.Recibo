@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SVI.Recibo.Web.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace SVI.Recibo.Web.ViewModels
 {
@@ -15,5 +16,7 @@ namespace SVI.Recibo.Web.ViewModels
         [Display( Name = "Estado" )]
         [Required( ErrorMessage = "O Estado é obrigatório" )]
         public int IdEstado { get; set; }
+
+        public virtual Estado Estado { get; set; }
     }
 }
