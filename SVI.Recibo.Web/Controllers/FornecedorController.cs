@@ -91,13 +91,25 @@ namespace SVI.Recibo.Web.Controllers
 
         // POST: Fornecedor/Edit/5
         [HttpPost]
-        public ActionResult Edit( int id, FornecedorViewModel viewModel )
+        public ActionResult Edit( int id, FornecedorViewModel viewModel , HttpPostedFileBase file )
         {
             try
             {
                 if( !ModelState.IsValid )
                 {
                     return View( viewModel );
+                }
+
+                if( file != null )
+                {
+                    Image image = Image.FromFile( file.FileName );
+
+                    using( MemoryStream memory = new MemoryStream() )
+                    {
+                        image.Save( memory, System.Drawing.Imaging.ImageFormat.Jpeg );
+
+                        viewModel.Logo = memory.ToArray();
+                    }
                 }
 
                 var fornecedor = AutoMapperManager.Instance.Mapper.Map<FornecedorViewModel, Fornecedor>( viewModel );

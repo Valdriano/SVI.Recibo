@@ -372,7 +372,9 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -443,7 +445,7 @@
     <EmbeddedResource Include="Migrations\201806180042192_Versao_1_0_0_0.resx">
       <DependentUpon>201806180042192_Versao_1_0_0_0.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ReciboReport.rdlc" />
+    <Content Include="Reports\ReciboReport.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

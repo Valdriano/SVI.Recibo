@@ -33,9 +33,20 @@ namespace SVI.Recibo.Web.Services
 
                 return bytes;
             }
+            catch(ReportViewerException ex)
+            {
+                using( StreamWriter sw = new StreamWriter( "C:/temp/Debug.txt", false, Encoding.UTF8 ) )
+                {
+                    sw.WriteLine( "Message: " + ex.Message );
+                    sw.WriteLine( "Trace: " + ex.StackTrace );
+                    sw.WriteLine( "Source: " + ex.Source );
+                }
+
+                throw new Exception( ex.Message );
+            }
             catch( Exception ex )
             {
-                using( StreamWriter sw = new StreamWriter( "Debug.txt", false, Encoding.UTF8 ) )
+                using( StreamWriter sw = new StreamWriter( "C:/temp/Debug.txt", false, Encoding.UTF8 ) )
                 {
                     sw.WriteLine( "Message: " + ex.Message );
                     sw.WriteLine( "Trace: " + ex.StackTrace );
@@ -46,7 +57,7 @@ namespace SVI.Recibo.Web.Services
             }
         }
 
-        public static string GetBase<T>( string NameReport, string NameDsReport, IList<T> Lista, System.Web.HttpResponseBase httpResponseBase, ReportParameter[] parameters = null )
+        public static void  GetDownloadPdf<T>( string NameReport, string NameDsReport, IList<T> Lista, System.Web.HttpResponseBase httpResponseBase, ReportParameter[] parameters = null )
         {
             try
             {
@@ -76,8 +87,6 @@ namespace SVI.Recibo.Web.Services
                 httpResponseBase.AddHeader( "content-disposition", "attachment; filename=" + fileName + "." + filenameExtension );
                 httpResponseBase.BinaryWrite( bytes ); // create the file
                 httpResponseBase.Flush();
-
-                return fileName;
             }
             catch( Exception ex )
             {

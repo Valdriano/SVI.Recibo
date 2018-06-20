@@ -127,7 +127,6 @@ namespace SVI.Recibo.Web.Controllers
 
             ReciboDataTable dt = new ReciboDataTable();
 
-
             ReciboRow dr = dt.NewReciboRow();
 
             dr.Ano = DateTime.Now.Year;
@@ -147,43 +146,6 @@ namespace SVI.Recibo.Web.Controllers
 
             return File( ReciboService.GetPDF_Recibo( "ReciboReport.rdlc", "dsRecibo", dt.ToList() ), "application/pdf" );
         }
-
-        //public ActionResult Visualizar( int id )
-        //{
-        //    try
-        //    {
-        //        Models.Recibo rec = repository.Get( id );
-
-        //        ReciboDataTable dt = new ReciboDataTable();
-
-
-        //        ReciboRow dr = dt.NewReciboRow();
-
-        //        dr.Ano = DateTime.Now.Year;
-        //        dr.Bairro = rec.Fornecedor.Bairro;
-        //        dr.CEP = AppUtil.MaskCEP( rec.Fornecedor.CEP );
-        //        dr.CPNJ = AppUtil.MaskCPFCNPJ( rec.Fornecedor.CNPJ );
-        //        dr.Extenso = AppUtil.EscreverExtenso( rec.Valor );
-        //        dr.Fornecedor = rec.Fornecedor.Nome;
-        //        dr.IdRecibo = rec.Id;
-        //        dr.Logo = rec.Fornecedor.Logo;
-        //        dr.Logradouro = rec.Fornecedor.Logradouro;
-        //        dr.Municipio = rec.Municipio.Descricao;
-        //        dr.Referente = rec.Referencia;
-        //        dr.Valor = rec.Valor;
-
-        //        dt.AddReciboRow( dr );
-
-        //        string file = ReciboService.GetBase( "ReciboReport.rdlc", "dsRecibo", dt.ToList(), Response );
-
-        //        return File( file, "application/pdf" );
-        //    }
-        //    catch( Exception ex )
-        //    {
-
-        //        return View( ex.Message );
-        //    }
-        //}
 
         [HttpPost]
         public ActionResult Visualizar( FormCollection collection )
@@ -227,33 +189,32 @@ namespace SVI.Recibo.Web.Controllers
             return File( ReciboService.GetPDF_Recibo( "ReciboReport.rdlc", "dsRecibo", dt.ToList() ), "application/pdf" );
         }
 
-        //public ActionResult Visualizar(int Id)
-        //{
-        //    List<Models.Recibo> recibos = repository.GetList();
+        public ActionResult Download( int id )
+        {
+            Models.Recibo rec = repository.Get( id );
 
-        //    ReciboDataTable dt = new ReciboDataTable();
+            ReciboDataTable dt = new ReciboDataTable();
 
-        //    foreach( Models.Recibo rec in recibos )
-        //    {
-        //        ReciboRow dr = dt.NewReciboRow();
+            ReciboRow dr = dt.NewReciboRow();
 
-        //        dr.Ano = DateTime.Now.Year;
-        //        dr.Bairro = rec.Fornecedor.Bairro;
-        //        dr.CEP = AppUtil.MaskCEP( rec.Fornecedor.CEP );
-        //        dr.CPNJ = AppUtil.MaskCPFCNPJ( rec.Fornecedor.CNPJ );
-        //        dr.Extenso = AppUtil.EscreverExtenso( rec.Valor );
-        //        dr.Fornecedor = rec.Fornecedor.Nome;
-        //        dr.IdRecibo = rec.Id;
-        //        dr.Logo = rec.Fornecedor.Logo;
-        //        dr.Logradouro = rec.Fornecedor.Logradouro;
-        //        dr.Municipio = rec.Municipio.Descricao;
-        //        dr.Referente = rec.Referencia;
-        //        dr.Valor = rec.Valor;
+            dr.Ano = DateTime.Now.Year;
+            dr.Bairro = rec.Fornecedor.Bairro;
+            dr.CEP = AppUtil.MaskCEP( rec.Fornecedor.CEP );
+            dr.CPNJ = AppUtil.MaskCPFCNPJ( rec.Fornecedor.CNPJ );
+            dr.Extenso = AppUtil.EscreverExtenso( rec.Valor );
+            dr.Fornecedor = rec.Fornecedor.Nome;
+            dr.IdRecibo = rec.Id;
+            dr.Logo = rec.Fornecedor.Logo;
+            dr.Logradouro = rec.Fornecedor.Logradouro;
+            dr.Municipio = rec.Municipio.Descricao;
+            dr.Referente = rec.Referencia;
+            dr.Valor = rec.Valor;
 
-        //        dt.AddReciboRow( dr );
-        //    }
+            dt.AddReciboRow( dr );
 
-        //    return File( ReciboService.GetPDF_Recibo( "ReciboReport.rdlc", "dsRecibo", dt.ToList() ), "application/pdf" );
-        //}
+            ReciboService.GetDownloadPdf( "ReciboReport.rdlc", "dsRecibo", dt.ToList(), Response );
+
+            return View();
+        }
     }
 }

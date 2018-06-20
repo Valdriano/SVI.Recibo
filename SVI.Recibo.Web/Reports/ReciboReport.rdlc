@@ -800,7 +800,7 @@
                               <Top>12.90032cm</Top>
                               <Left>0.48884cm</Left>
                               <Height>0cm</Height>
-                              <Width>7.87514cm</Width>
+                              <Width>7.5841cm</Width>
                               <ZIndex>22</ZIndex>
                               <Style>
                                 <Border>
@@ -810,9 +810,9 @@
                             </Line>
                             <Line Name="Line3">
                               <Top>12.90032cm</Top>
-                              <Left>10.87694cm</Left>
+                              <Left>9.36882cm</Left>
                               <Height>0cm</Height>
-                              <Width>7.87514cm</Width>
+                              <Width>9.38327cm</Width>
                               <ZIndex>23</ZIndex>
                               <Style>
                                 <Border>
@@ -836,9 +836,9 @@
                                 </Paragraph>
                               </Paragraphs>
                               <Top>13.00615cm</Top>
-                              <Left>11.74666cm</Left>
+                              <Left>8.94548cm</Left>
                               <Height>0.6cm</Height>
-                              <Width>6.63972cm</Width>
+                              <Width>10.11074cm</Width>
                               <ZIndex>24</ZIndex>
                               <Style>
                                 <Border>
@@ -1201,6 +1201,7 @@
                             </Border>
                           </Style>
                         </Rectangle>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
