@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SVI.Recibo.Web.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace SVI.Recibo.Web.ViewModels
 {
@@ -60,5 +61,8 @@ namespace SVI.Recibo.Web.ViewModels
         [Display( Name = "Logo Tipo" )]
         [DataType( DataType.ImageUrl )]
         public byte[] Logo { get; set; }
+
+        public virtual Estado Estado { get; set; }
+        public virtual Municipio Municipio { get; set; }
     }
 }

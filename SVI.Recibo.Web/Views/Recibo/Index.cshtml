@@ -11,7 +11,7 @@
 </p>
 @using( Html.BeginForm( "Visualizar", "Recibo", FormMethod.Post, new { @target = "_blank" } ) )
 {
-    <table id="tabela" class="display" style="width:100%">
+    <table id="tabela" class="table table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>
@@ -84,13 +84,6 @@
 
     </table>
     <hr />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <button type="submit" class="btn btn-primary">Imprmir</button>

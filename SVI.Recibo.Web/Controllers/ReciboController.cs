@@ -57,6 +57,9 @@ namespace SVI.Recibo.Web.Controllers
         {
             try
             {
+                viewModel.Data = DateTime.Now;
+                viewModel.QuantidadeImpressao = 1;
+
                 if( !ModelState.IsValid )
                 {
                     return View( viewModel );
@@ -142,9 +145,45 @@ namespace SVI.Recibo.Web.Controllers
 
             dt.AddReciboRow( dr );
 
-
             return File( ReciboService.GetPDF_Recibo( "ReciboReport.rdlc", "dsRecibo", dt.ToList() ), "application/pdf" );
         }
+
+        //public ActionResult Visualizar( int id )
+        //{
+        //    try
+        //    {
+        //        Models.Recibo rec = repository.Get( id );
+
+        //        ReciboDataTable dt = new ReciboDataTable();
+
+
+        //        ReciboRow dr = dt.NewReciboRow();
+
+        //        dr.Ano = DateTime.Now.Year;
+        //        dr.Bairro = rec.Fornecedor.Bairro;
+        //        dr.CEP = AppUtil.MaskCEP( rec.Fornecedor.CEP );
+        //        dr.CPNJ = AppUtil.MaskCPFCNPJ( rec.Fornecedor.CNPJ );
+        //        dr.Extenso = AppUtil.EscreverExtenso( rec.Valor );
+        //        dr.Fornecedor = rec.Fornecedor.Nome;
+        //        dr.IdRecibo = rec.Id;
+        //        dr.Logo = rec.Fornecedor.Logo;
+        //        dr.Logradouro = rec.Fornecedor.Logradouro;
+        //        dr.Municipio = rec.Municipio.Descricao;
+        //        dr.Referente = rec.Referencia;
+        //        dr.Valor = rec.Valor;
+
+        //        dt.AddReciboRow( dr );
+
+        //        string file = ReciboService.GetBase( "ReciboReport.rdlc", "dsRecibo", dt.ToList(), Response );
+
+        //        return File( file, "application/pdf" );
+        //    }
+        //    catch( Exception ex )
+        //    {
+
+        //        return View( ex.Message );
+        //    }
+        //}
 
         [HttpPost]
         public ActionResult Visualizar( FormCollection collection )
